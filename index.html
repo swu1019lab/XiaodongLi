@@ -182,23 +182,31 @@
         [lang="zh"] { display: none; }
         body.zh-mode [lang="en"] { display: none; }
         body.zh-mode [lang="zh"] { display: inline-block; }
-        /* 针对块级元素的特殊处理 */
         body.zh-mode div[lang="zh"], body.zh-mode p[lang="zh"], body.zh-mode ul[lang="zh"], body.zh-mode li[lang="zh"], body.zh-mode h1[lang="zh"], body.zh-mode h2[lang="zh"], body.zh-mode h3[lang="zh"] { display: block; }
 
         /* ==================================================== */
-        /* 打印/导出为PDF的样式控制 */
+        /* 打印/导出为PDF的样式控制：100% 还原在线布局和色彩 */
         /* ==================================================== */
         @media print {
-            body { background-color: #fff; font-size: 11pt; font-family: 'Times New Roman', Times, serif; }
-            .container { box-shadow: none; margin: 0; padding: 0; width: 100%; max-width: none; gap: 30px; display: flex; flex-direction: row; }
-            .controls { display: none; } /* 打印时隐藏按钮 */
-            .sidebar { max-width: 220px; border-right: 1px solid #ccc; padding-right: 20px; }
-            .profile-img { max-width: 150px; }
-            .skill-tag { border: 1px solid #999; background: transparent; color: #333; }
-            a { text-decoration: none; color: #000; }
-            h3.section-title { color: #000; border-bottom: 1px solid #000; }
-            .pub-if { border: 1px solid #666; background: transparent; color: #333; }
-            @page { margin: 1.5cm; }
+            * {
+                -webkit-print-color-adjust: exact !important;   /* Chrome, Safari, Edge 强制打印背景色 */
+                print-color-adjust: exact !important;           /* Firefox 强制打印背景色 */
+            }
+            body { 
+                background-color: var(--bg-color); 
+            }
+            .controls { display: none !important; } /* 打印时仅仅隐藏控制按钮 */
+            .container { 
+                box-shadow: none; 
+                margin: 0; 
+                padding: 10px 30px; 
+                width: 100%; 
+                max-width: none; 
+                gap: 40px; 
+                display: flex; 
+                flex-direction: row; 
+            }
+            @page { margin: 1cm; size: A4 portrait; }
         }
 
         /* 移动端响应式 */
@@ -348,30 +356,47 @@
 
             <section>
                 <h3 class="section-title">
-                    <span lang="en">Selected Publications (First/Co-first Author)</span>
-                    <span lang="zh">代表性论文 (第一/共同第一作者)</span>
+                    <span lang="en">Selected Publications</span>
+                    <span lang="zh">代表性论文</span>
                 </h3>
                 <ul class="pub-list">
                     <li>
                         <span class="pub-title">Hastat: Mining Favorable Haplotypes of Trait-Associated Genes for Breeding Improvement in Natural Populations.</span><br>
-                        <strong>Xiaodong Li</strong>, Yuhong Wang ... Kun Lu.<br>
+                        <strong>Xiaodong Li</strong>, Yuhong Wang, Boyu Meng, Zhixuan Qin, Minghao Zhang, Jiaming Song, Kun Lu.<br>
                         <span class="pub-journal">Horticulture Research</span> (2026). DOI: 10.1093/HR/UHAG018 <span class="pub-if">IF: 8.5 (Q1)</span>
                     </li>
                     <li>
                         <span class="pub-title">qPrimerDB 2.0: an updated comprehensive gene-specific qPCR primer database for 1172 organisms.</span><br>
-                        <strong>Xiaodong Li</strong>, Meng Boyu ... Kun Lu.<br>
+                        <strong>Xiaodong Li</strong>, Boyu Meng, Zhi Zhang, Lijuan Wei, Wei Chang, Yuhong Wang, Kai Zhang, Tian Li, Kun Lu.<br>
                         <span class="pub-journal">Nucleic Acids Research</span> (2025). DOI: 10.1093/NAR/GKAE684 <span class="pub-if">IF: 13.1 (Q1)</span>
                     </li>
                     <li>
                         <span class="pub-title">Development of a target capture sequencing SNP genotyping platform for genetic analysis and genomic breeding in rapeseed.</span><br>
-                        <strong>Xiaodong Li</strong>, Liu Xumei ... Kun Lu.<br>
-                        <span class="pub-journal">The Crop Journal</span> (2023). DOI: 10.1016/J.CJ.2022.08.008 <span class="pub-if">IF: 5.6 (Q1)</span>
+                        <strong>Xiaodong Li</strong>, Xumei Liu, Yonghai Fan, Shengting Li, ... Kun Lu.<br>
+                        <span class="pub-journal">The Crop Journal</span> (2023). DOI: 10.1016/J.CJ.2022.08.008
+        
+         span class="pub-if">IF: 5.6 (Q1)</span>
                     </li>
                     <li>
-                        <span class="pub-title" lang="en">Deciphering the genetic regulation of flowering time in rapeseed for early-maturation breeding.</span>
-                        <span class="pub-title" lang="zh">Deciphering the genetic regulation of flowering time in rapeseed for early-maturation breeding. (油菜早熟育种开花期遗传调控解析)</span><br>
-                        Zhang Minghao, Chang Wei, <strong>Xiaodong Li</strong> ... Kun Lu.<br>
-                        <span class="pub-journal">Journal of Genetics and Genomics</span> (2026). DOI: 10.1016/J.JGG.2025.08.011 <span class="pub-if">IF: 7.1 (Q1)</span>
+                        <span class="pub-title">Exploring silique number in Brassica napus L.: Genetic and molecular advances for improving yield.</span><br>
+                        Hui Wang<sup>#</sup>, <strong>Xiaodong Li<sup>#</sup></strong>, Boyu Meng, Yonghai Fan, Shahid Ullah Khan, Mingchao Qian, Minghao Zhang, Haikun Yang, Kun Lu. (<sup>#</sup>Co-first author)<br>
+                        <span class="pub-journal">Plant Biotechnology Journal</span> (2024). DOI: 10.1111/PBI.14309
+        
+         span class="pub-if">IF: 10.5 (Q1)</span>
+                    </li>
+                    <li>
+                        <span class="pub-title">CaHMA1 promotes Cd accumulation in pepper fruit.</span><br>
+                        Weihong Xu<sup>#</sup>, He Huang<sup>#</sup>, <strong>Xiaodong Li</strong>, Mei Yang, Sunlin Chi, Yu Pan, Nannan Li, Andrew H. Paterson, Yourong Chai, Kun Lu.<br>
+                        <span class="pub-journal">Journal of Hazardous Materials</span> (2023). DOI: 10.1016/J.JHAZMAT.2023.132480
+        
+         span class="pub-if">IF: 11.3 (Q1)</span>
+                    </li>
+                    <li>
+                        <span class="pub-title">The brassinosteroid-signaling gene BnaC04.BIL1 contributes to plant architecture in Brassica napus.</span><br>
+                        Yonghai Fan<sup>#</sup>, Yuling Chen<sup>#</sup>, <strong>Xiaodong Li</strong>, Hongqiao Chen, Mengna Yu, Likai Miao, Siyu Wei, Shengting Li, Mingchao Qian, Wei Chang, Umer Mahmood, Shahid Ullah Khan, Lijuan Wei, Cunmin Qu, Jiana Li, Kun Lu.<br>
+                        <span class="pub-journal">Industrial Crops and Products</span> (2024). DOI: 10.1016/J.INDCROP.2024.118066
+        
+         span class="pub-if">IF: 6.2 (Q1)</span>
                     </li>
                 </ul>
             </section>
@@ -399,7 +424,6 @@
             const body = document.body;
             body.classList.toggle('zh-mode');
             
-            // 可选：将用户的语言偏好保存在浏览器中，下次打开自动记住
             if(body.classList.contains('zh-mode')) {
                 localStorage.setItem('cv-lang', 'zh');
             } else {
@@ -407,10 +431,8 @@
             }
         }
 
-        // 页面加载时检查用户的语言偏好
         window.onload = function() {
             const savedLang = localStorage.getItem('cv-lang');
-            // 如果用户之前选了中文，或者浏览器默认语言是中文且没选过，则默认显示中文
             if (savedLang === 'zh' || (!savedLang && navigator.language.startsWith('zh'))) {
                 document.body.classList.add('zh-mode');
             }
