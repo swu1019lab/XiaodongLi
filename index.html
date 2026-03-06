@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiaodong Li (黎小东) - Academic CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 全局样式 - 现代化在线阅读体验 */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #e9ecef;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            display: flex;
+            gap: 40px;
+            position: relative;
+        }
+
+        /* 侧边栏样式 */
+        .sidebar {
+            flex: 1;
+            max-width: 280px;
+            border-right: 2px solid var(--border-color);
+            padding-right: 30px;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .name-title h1 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin: 0 0 5px 0;
+        }
+
+        .name-title h2 {
+            font-size: 16px;
+            color: var(--secondary-color);
+            font-weight: 400;
+            margin: 0 0 20px 0;
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .contact-info li {
+            margin-bottom: 12px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            width: 20px;
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+
+        .contact-info a {
+            color: var(--text-color);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
+
+        /* 指标数据展示 */
+        .metrics {
+            background: #f1f3f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+        .metrics h3 { margin-top: 0; font-size: 16px; color: var(--primary-color); }
+        .metric-item { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; }
+        .metric-item span:last-child { font-weight: bold; color: var(--accent-color); }
+
+        /* 主体内容样式 */
+        .main-content {
+            flex: 2;
+        }
+
+        section {
+            margin-bottom: 35px;
+        }
+
+        h3.section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .item { margin-bottom: 20px; }
+        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+        .item-title { font-weight: 600; font-size: 18px; color: var(--primary-color); }
+        .item-date { font-size: 14px; color: #666; font-weight: 500; }
+        .item-subtitle { font-style: italic; color: var(--secondary-color); margin-bottom: 8px; }
+        .item-desc { margin: 0; font-size: 14px; color: #444; }
+
+        /* 核心技能标签 */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag { background: #e3f2fd; color: #1976d2; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; }
+
+        /* 出版物列表 */
+        .pub-list { list-style: none; padding: 0; margin: 0; }
+        .pub-list li { margin-bottom: 15px; font-size: 14px; position: relative; padding-left: 20px; }
+        .pub-list li::before { content: "•"; color: var(--accent-color); position: absolute; left: 0; font-weight: bold; }
+        .pub-title { font-weight: 600; }
+        .pub-journal { font-style: italic; color: var(--secondary-color); }
+        .pub-if { background: #ffebee; color: #c62828; padding: 2px 6px; border-radius: 4px; font-size: 12px; margin-left: 5px; }
+
+        /* 悬浮按钮 (下载与语言切换) */
+        .controls {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn:hover { background: #2980b9; transform: translateY(-2px); }
+        .btn-lang { background: var(--primary-color); }
+        .btn-lang:hover { background: #1a252f; }
+
+        /* 中英文显示逻辑 */
+        [lang="zh"] { display: none; }
+        body.zh-mode [lang="en"] { display: none; }
+        body.zh-mode [lang="zh"] { display: inline-block; }
+        /* 针对块级元素的特殊处理 */
+        body.zh-mode div[lang="zh"], body.zh-mode p[lang="zh"], body.zh-mode ul[lang="zh"], body.zh-mode li[lang="zh"], body.zh-mode h1[lang="zh"], body.zh-mode h2[lang="zh"], body.zh-mode h3[lang="zh"] { display: block; }
+
+        /* ==================================================== */
+        /* 打印/导出为PDF的样式控制 */
+        /* ==================================================== */
+        @media print {
+            body { background-color: #fff; font-size: 11pt; font-family: 'Times New Roman', Times, serif; }
+            .container { box-shadow: none; margin: 0; padding: 0; width: 100%; max-width: none; gap: 30px; display: flex; flex-direction: row; }
+            .controls { display: none; } /* 打印时隐藏按钮 */
+            .sidebar { max-width: 220px; border-right: 1px solid #ccc; padding-right: 20px; }
+            .profile-img { max-width: 150px; }
+            .skill-tag { border: 1px solid #999; background: transparent; color: #333; }
+            a { text-decoration: none; color: #000; }
+            h3.section-title { color: #000; border-bottom: 1px solid #000; }
+            .pub-if { border: 1px solid #666; background: transparent; color: #333; }
+            @page { margin: 1.5cm; }
+        }
+
+        /* 移动端响应式 */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; padding: 20px; margin: 10px; }
+            .sidebar { max-width: 100%; border-right: none; border-bottom: 2px solid var(--border-color); padding-right: 0; padding-bottom: 20px; }
+            .controls { bottom: 20px; right: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <button class="btn btn-lang" onclick="toggleLanguage()">
+            <i class="fas fa-language"></i> <span id="lang-btn-text">中文 / EN</span>
+        </button>
+        <button class="btn" onclick="window.print()">
+            <i class="fas fa-file-pdf"></i> 
+            <span lang="en">Download CV (PDF)</span>
+            <span lang="zh">下载简历 (PDF)</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <img src="profile.jpg" alt="Xiaodong Li" class="profile-img">
+            
+            <div class="name-title">
+                <h1>
+                    <span lang="en">Xiaodong Li</span>
+                    <span lang="zh">黎小东</span>
+                </h1>
+                <h2>
+                    <span lang="en">Ph.D. Candidate in Crop Genetics & Breeding</span>
+                    <span lang="zh">作物遗传育种专业博士生</span>
+                </h2>
+            </div>
+
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i> 
+                    <span lang="en">College of Agronomy and Biotechnology, Southwest University, Chongqing, China</span>
+                    <span lang="zh">西南大学 农学与生物科技学院, 中国重庆</span>
+                </li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:lxd1997xy@email.swu.edu.cn">lxd1997xy@email.swu.edu.cn</a></li>
+                <li><i class="fab fa-github"></i> <a href="https://github.com/swu1019lab" target="_blank">swu1019lab</a></li>
+                <li><i class="fab fa-orcid"></i> <a href="https://orcid.org/0009-0007-9666-7967" target="_blank">0009-0007-9666-7967</a></li>
+                <li><i class="fas fa-id-card"></i> Web of Science: PKR-5239-2026</li>
+            </ul>
+
+            <div class="metrics">
+                <h3>
+                    <span lang="en">Academic Metrics</span>
+                    <span lang="zh">学术指标</span>
+                </h3>
+                <div class="metric-item">
+                    <span lang="en">Total Publications</span><span lang="zh">总发文量</span>
+                    <span>22</span>
+                </div>
+                <div class="metric-item">
+                    <span lang="en">H-index</span><span lang="zh">H指数</span>
+                    <span>10</span>
+                </div>
+                <div class="metric-item">
+                    <span lang="en">Sum of Times Cited</span><span lang="zh">总被引频次</span>
+                    <span>287</span>
+                </div>
+            </div>
+
+            <section>
+                <h3 class="section-title">
+                    <span lang="en">Core Expertise</span>
+                    <span lang="zh">核心专长</span>
+                </h3>
+                <div class="skills-container" lang="en">
+                    <span class="skill-tag">Bioinformatics</span>
+                    <span class="skill-tag">Population Genetics</span>
+                    <span class="skill-tag">Genome Assembly</span>
+                    <span class="skill-tag">Multi-Omics Analysis</span>
+                    <span class="skill-tag">Database Construction</span>
+                    <span class="skill-tag">Python Development</span>
+                </div>
+                <div class="skills-container" lang="zh">
+                    <span class="skill-tag">生物信息学</span>
+                    <span class="skill-tag">群体遗传学</span>
+                    <span class="skill-tag">基因组组装</span>
+                    <span class="skill-tag">多组学分析</span>
+                    <span class="skill-tag">数据库构建</span>
+                    <span class="skill-tag">Python工具开发</span>
+                </div>
+            </section>
+        </div>
+
+        <div class="main-content">
+            <section>
+                <h3 class="section-title">
+                    <span lang="en">Education</span>
+                    <span lang="zh">教育经历</span>
+                </h3>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title" lang="en">Southwest University</span>
+                        <span class="item-title" lang="zh">西南大学</span>
+                        <span class="item-date" lang="en">2022.09 – 2026.06 (Expected)</span>
+                        <span class="item-date" lang="zh">2022.09 – 2026.06 (预计毕业)</span>
+                    </div>
+                    <div class="item-subtitle" lang="en">Ph.D. in Crop Genetics and Breeding</div>
+                    <div class="item-subtitle" lang="zh">农学博士 - 作物遗传育种专业</div>
+                    <p class="item-desc" lang="en">Research Focus: Omics database construction, population genetic analysis, and intelligent breeding platforms for rapeseed.</p>
+                    <p class="item-desc" lang="zh">研究方向：油菜多组学数据库构建、群体遗传分析及智能育种平台开发。</p>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title" lang="en">Southwest University</span>
+                        <span class="item-title" lang="zh">西南大学</span>
+                        <span class="item-date">2020.09 – 2022.10</span>
+                    </div>
+                    <div class="item-subtitle" lang="en">M.S. in Genetics</div>
+                    <div class="item-subtitle" lang="zh">理学硕士 - 遗传学专业</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title" lang="en">Southwest University</span>
+                        <span class="item-title" lang="zh">西南大学</span>
+                        <span class="item-date">2016.09 – 2020.06</span>
+                    </div>
+                    <div class="item-subtitle" lang="en">B.S. in Plant Science and Technology</div>
+                    <div class="item-subtitle" lang="zh">农学学士 - 植物科学与技术专业</div>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="section-title">
+                    <span lang="en">Developed Bioinformatics Tools & Platforms</span>
+                    <span lang="zh">生信工具与平台开发</span>
+                </h3>
+                <div class="item">
+                    <div class="item-subtitle">BrassicaIBD & DLGP</div>
+                    <p class="item-desc" lang="en">Developed an intelligent breeding platform for rapeseed (BrassicaIBD) integrating multi-omics data. Engineered a Deep Latent Genomic Prediction (DLGP) deep learning model to accelerate modern genomic breeding efficiency.</p>
+                    <p class="item-desc" lang="zh">开发了整合多组学数据的油菜智能育种平台 (BrassicaIBD)。构建了深度潜在基因组预测 (DLGP) 深度学习模型，以提高现代基因组育种效率。</p>
+                </div>
+                <div class="item">
+                    <div class="item-subtitle">PGFAT & GWASNexus</div>
+                    <p class="item-desc" lang="en">Created the Pan-Gene Family Analysis Toolkit (PGFAT), a Python-based command-line pipeline for high-throughput genomic data. Developed GWASNexus for advanced post-GWAS analysis.</p>
+                    <p class="item-desc" lang="zh">创建了泛基因家族分析工具包 (PGFAT)，这是一个基于 Python 的高通量基因组数据命令行分析流程。开发了用于 GWAS 后续深度分析的 GWASNexus 工具。</p>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="section-title">
+                    <span lang="en">Selected Publications (First/Co-first Author)</span>
+                    <span lang="zh">代表性论文 (第一/共同第一作者)</span>
+                </h3>
+                <ul class="pub-list">
+                    <li>
+                        <span class="pub-title">Hastat: Mining Favorable Haplotypes of Trait-Associated Genes for Breeding Improvement in Natural Populations.</span><br>
+                        <strong>Xiaodong Li</strong>, Yuhong Wang ... Kun Lu.<br>
+                        <span class="pub-journal">Horticulture Research</span> (2026). DOI: 10.1093/HR/UHAG018 <span class="pub-if">IF: 8.5 (Q1)</span>
+                    </li>
+                    <li>
+                        <span class="pub-title">qPrimerDB 2.0: an updated comprehensive gene-specific qPCR primer database for 1172 organisms.</span><br>
+                        <strong>Xiaodong Li</strong>, Meng Boyu ... Kun Lu.<br>
+                        <span class="pub-journal">Nucleic Acids Research</span> (2025). DOI: 10.1093/NAR/GKAE684 <span class="pub-if">IF: 13.1 (Q1)</span>
+                    </li>
+                    <li>
+                        <span class="pub-title">Development of a target capture sequencing SNP genotyping platform for genetic analysis and genomic breeding in rapeseed.</span><br>
+                        <strong>Xiaodong Li</strong>, Liu Xumei ... Kun Lu.<br>
+                        <span class="pub-journal">The Crop Journal</span> (2023). DOI: 10.1016/J.CJ.2022.08.008 <span class="pub-if">IF: 5.6 (Q1)</span>
+                    </li>
+                    <li>
+                        <span class="pub-title" lang="en">Deciphering the genetic regulation of flowering time in rapeseed for early-maturation breeding.</span>
+                        <span class="pub-title" lang="zh">Deciphering the genetic regulation of flowering time in rapeseed for early-maturation breeding. (油菜早熟育种开花期遗传调控解析)</span><br>
+                        Zhang Minghao, Chang Wei, <strong>Xiaodong Li</strong> ... Kun Lu.<br>
+                        <span class="pub-journal">Journal of Genetics and Genomics</span> (2026). DOI: 10.1016/J.JGG.2025.08.011 <span class="pub-if">IF: 7.1 (Q1)</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3 class="section-title">
+                    <span lang="en">Academic Service</span>
+                    <span lang="zh">学术服务</span>
+                </h3>
+                <ul class="pub-list">
+                    <li>
+                        <strong lang="en">Peer Reviewer:</strong> 
+                        <strong lang="zh">同行评审专家:</strong> 
+                        <em>Horticulture Research</em> 
+                        <span lang="en">(1 review, Jan 2026).</span>
+                        <span lang="zh">(1篇审稿, 2026年1月)。</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function toggleLanguage() {
+            const body = document.body;
+            body.classList.toggle('zh-mode');
+            
+            // 可选：将用户的语言偏好保存在浏览器中，下次打开自动记住
+            if(body.classList.contains('zh-mode')) {
+                localStorage.setItem('cv-lang', 'zh');
+            } else {
+                localStorage.setItem('cv-lang', 'en');
+            }
+        }
+
+        // 页面加载时检查用户的语言偏好
+        window.onload = function() {
+            const savedLang = localStorage.getItem('cv-lang');
+            // 如果用户之前选了中文，或者浏览器默认语言是中文且没选过，则默认显示中文
+            if (savedLang === 'zh' || (!savedLang && navigator.language.startsWith('zh'))) {
+                document.body.classList.add('zh-mode');
+            }
+        };
+    </script>
+</body>
+</html>
