@@ -16,6 +16,10 @@
             --border-color: #e9ecef;
         }
         
+        * {
+            box-sizing: border-box; /* 确保 padding 不会额外增加元素宽度 */
+        }
+
         body {
             font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
@@ -40,7 +44,7 @@
 
         /* 侧边栏样式 */
         .sidebar {
-            flex: 1;
+            flex: 0 0 260px; /* 固定侧边栏宽度 */
             max-width: 260px;
             border-right: 2px solid var(--border-color);
             padding-right: 30px;
@@ -111,7 +115,8 @@
 
         /* 主体内容样式 */
         .main-content {
-            flex: 2;
+            flex: 1; /* 占据剩余全部宽度 */
+            min-width: 0; /* 防止子元素撑破 Flex 容器 */
         }
 
         section {
@@ -195,7 +200,7 @@
         body.zh-mode div[lang="zh"], body.zh-mode p[lang="zh"], body.zh-mode ul[lang="zh"], body.zh-mode li[lang="zh"], body.zh-mode h1[lang="zh"], body.zh-mode h2[lang="zh"], body.zh-mode h3[lang="zh"] { display: block; }
 
         /* ==================================================== */
-        /* 打印/导出为PDF的样式控制：彻底解决多页布局错位问题 */
+        /* 打印/导出为PDF的样式控制：严格限制左右两栏绝对并排 */
         /* ==================================================== */
         @media print {
             * {
@@ -209,31 +214,33 @@
             .controls { display: none !important; }
             
             .container { 
-                box-shadow: none; 
-                margin: 0; 
-                padding: 0; 
-                width: 100%; 
-                max-width: 100%; 
-                display: block; 
+                box-shadow: none !important; 
+                margin: 0 !important; 
+                padding: 0 !important; 
+                width: 100% !important; 
+                max-width: 100% !important; 
+                
+                /* 强制启用弹性布局并阻止换行 */
+                display: flex !important; 
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: flex-start !important; /* 避免两栏等高拉伸导致的跨页截断 */
+                gap: 25px !important;
             }
             
             .sidebar { 
-                float: left;
-                width: 240px; 
-                border-right: 2px solid var(--border-color); 
-                padding-right: 20px; 
-                height: 100%;
+                /* 绝对锁定侧边栏宽度为 230px */
+                flex: 0 0 230px !important;
+                max-width: 230px !important;
+                width: 230px !important;
+                border-right: 2px solid var(--border-color) !important; 
+                padding-right: 20px !important; 
             }
             
             .main-content { 
-                margin-left: 280px;
-                padding-left: 10px;
-            }
-
-            .container::after {
-                content: "";
-                display: table;
-                clear: both;
+                /* 占据剩余全部空间，不允许超出边界换行 */
+                flex: 1 !important;
+                min-width: 0 !important;
             }
 
             .item, .metrics, .pub-list li, .name-title, .contact-info {
@@ -241,13 +248,13 @@
                 break-inside: avoid;
             }
 
-            @page { margin: 1cm 1.5cm; size: A4 portrait; }
+            /* 稍微减小边距，给 A4 纸留出更多宽度空间 */
+            @page { margin: 0.8cm 1.2cm; size: A4 portrait; }
         }
 
         @media (max-width: 768px) {
             .container { flex-direction: column; padding: 20px; margin: 10px; display: flex; }
-            .sidebar { max-width: 100%; border-right: none; border-bottom: 2px solid var(--border-color); padding-right: 0; padding-bottom: 20px; }
-            .main-content { margin-left: 0; padding-left: 0; }
+            .sidebar { max-width: 100%; flex: 1; border-right: none; border-bottom: 2px solid var(--border-color); padding-right: 0; padding-bottom: 20px; }
             .controls { bottom: 20px; right: 20px; }
         }
     </style>
