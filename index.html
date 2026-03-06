@@ -6,7 +6,9 @@
     <title>Xiaodong Li (黎小东) - Academic CV</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ==================================================== */
         /* 全局样式 - 现代化在线阅读体验 */
+        /* ==================================================== */
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #34495e;
@@ -16,9 +18,7 @@
             --border-color: #e9ecef;
         }
         
-        * {
-            box-sizing: border-box; /* 确保 padding 不会额外增加元素宽度 */
-        }
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -42,9 +42,9 @@
             position: relative;
         }
 
-        /* 侧边栏样式 */
+        /* 侧边栏样式 (在线版) */
         .sidebar {
-            flex: 0 0 260px; /* 固定侧边栏宽度 */
+            flex: 0 0 260px;
             max-width: 260px;
             border-right: 2px solid var(--border-color);
             padding-right: 30px;
@@ -60,69 +60,27 @@
             margin-right: auto;
         }
 
-        .name-title h1 {
-            font-size: 28px;
-            color: var(--primary-color);
-            margin: 0 0 5px 0;
-        }
+        .name-title h1 { font-size: 28px; color: var(--primary-color); margin: 0 0 5px 0; }
+        .name-title h2 { font-size: 15px; color: var(--secondary-color); font-weight: 400; margin: 0 0 20px 0; }
 
-        .name-title h2 {
-            font-size: 15px;
-            color: var(--secondary-color);
-            font-weight: 400;
-            margin: 0 0 20px 0;
-        }
+        .contact-info { list-style: none; padding: 0; margin-bottom: 30px; }
+        .contact-info li { margin-bottom: 12px; font-size: 13px; display: flex; align-items: center; }
+        .contact-info i { width: 20px; color: var(--accent-color); margin-right: 10px; }
+        .contact-info a { color: var(--text-color); text-decoration: none; word-break: break-all; }
+        .contact-info a:hover { color: var(--accent-color); }
 
-        .contact-info {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-        }
-
-        .contact-info li {
-            margin-bottom: 12px;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-info i {
-            width: 20px;
-            color: var(--accent-color);
-            margin-right: 10px;
-        }
-
-        .contact-info a {
-            color: var(--text-color);
-            text-decoration: none;
-            word-break: break-all;
-        }
-
-        .contact-info a:hover {
-            color: var(--accent-color);
-        }
-
-        /* 指标数据展示 */
-        .metrics {
-            background: #f1f3f5;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 30px;
-        }
+        .metrics { background: #f1f3f5; padding: 15px; border-radius: 6px; margin-bottom: 30px; }
         .metrics h3 { margin-top: 0; font-size: 15px; color: var(--primary-color); }
         .metric-item { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px; }
         .metric-item span:last-child { font-weight: bold; color: var(--accent-color); }
 
         /* 主体内容样式 */
         .main-content {
-            flex: 1; /* 占据剩余全部宽度 */
-            min-width: 0; /* 防止子元素撑破 Flex 容器 */
+            flex: 1;
+            min-width: 0;
         }
 
-        section {
-            margin-bottom: 35px;
-        }
-
+        section { margin-bottom: 35px; }
         h3.section-title {
             color: var(--primary-color);
             border-bottom: 2px solid var(--accent-color);
@@ -139,21 +97,12 @@
         .item-subtitle { font-weight: bold; color: var(--secondary-color); margin-bottom: 8px; font-size: 15px;}
         .item-desc { margin: 0; font-size: 13.5px; color: #444; text-align: justify; line-height: 1.6;}
         
-        .tool-link {
-            display: inline-block;
-            margin-top: 5px;
-            font-size: 13px;
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
+        .tool-link { display: inline-block; margin-top: 5px; font-size: 13px; color: var(--accent-color); text-decoration: none; font-weight: 600; }
         .tool-link:hover { text-decoration: underline; }
 
-        /* 核心技能标签 */
         .skills-container { display: flex; flex-wrap: wrap; gap: 8px; }
         .skill-tag { background: #e3f2fd; color: #1976d2; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
 
-        /* 出版物列表 */
         .pub-list { list-style: none; padding: 0; margin: 0; }
         .pub-list li { margin-bottom: 15px; font-size: 14px; position: relative; padding-left: 20px; line-height: 1.6;}
         .pub-list li::before { content: "•"; color: var(--accent-color); position: absolute; left: 0; font-weight: bold; }
@@ -200,58 +149,95 @@
         body.zh-mode div[lang="zh"], body.zh-mode p[lang="zh"], body.zh-mode ul[lang="zh"], body.zh-mode li[lang="zh"], body.zh-mode h1[lang="zh"], body.zh-mode h2[lang="zh"], body.zh-mode h3[lang="zh"] { display: block; }
 
         /* ==================================================== */
-        /* 打印/导出为PDF的样式控制：严格限制左右两栏绝对并排 */
+        /* 核心重构：自适应 PDF 打印样式 (自动转换为传统学术简历排版) */
         /* ==================================================== */
         @media print {
-            * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-            body { 
-                background-color: var(--bg-color); 
-                font-size: 10.5pt;
-            }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            body { background-color: #fff; font-size: 10.5pt; }
             .controls { display: none !important; }
             
+            /* 1. 取消左右分栏，强制变更为上下文档流 */
             .container { 
                 box-shadow: none !important; 
                 margin: 0 !important; 
                 padding: 0 !important; 
                 width: 100% !important; 
                 max-width: 100% !important; 
-                
-                /* 强制启用弹性布局并阻止换行 */
-                display: flex !important; 
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: flex-start !important; /* 避免两栏等高拉伸导致的跨页截断 */
-                gap: 25px !important;
+                display: block !important; /* 核心：取消 flex */
             }
             
+            /* 2. 将侧边栏转化为顶部页眉 (Top Header) */
             .sidebar { 
-                /* 绝对锁定侧边栏宽度为 230px */
-                flex: 0 0 230px !important;
-                max-width: 230px !important;
-                width: 230px !important;
-                border-right: 2px solid var(--border-color) !important; 
-                padding-right: 20px !important; 
+                width: 100% !important; 
+                max-width: 100% !important; 
+                border-right: none !important; 
+                border-bottom: 2px solid var(--primary-color) !important; 
+                padding-right: 0 !important; 
+                padding-bottom: 15px !important;
+                margin-bottom: 25px !important;
             }
             
-            .main-content { 
-                /* 占据剩余全部空间，不允许超出边界换行 */
-                flex: 1 !important;
-                min-width: 0 !important;
+            /* 清除浮动，保证 header 容器包裹住浮动的照片 */
+            .sidebar::after {
+                content: "";
+                display: table;
+                clear: both;
             }
 
-            .item, .metrics, .pub-list li, .name-title, .contact-info {
+            /* 3. 照片移至右上角 */
+            .profile-img {
+                float: right;
+                width: 110px !important;
+                max-width: 110px !important;
+                margin: 0 0 10px 20px !important;
+            }
+
+            /* 4. 姓名标题左对齐，联系方式横向紧凑排列 */
+            .name-title h2 { margin-bottom: 10px !important; }
+            
+            .contact-info {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: 5px 20px !important;
+                margin-bottom: 10px !important;
+            }
+            .contact-info li { margin-bottom: 0 !important; }
+
+            /* 5. 学术指标和专长标签横向排列 */
+            .metrics {
+                background: transparent !important;
+                padding: 0 !important;
+                margin-bottom: 10px !important;
+                display: flex !important;
+                gap: 20px !important;
+            }
+            .metrics h3 { display: none !important; } /* 打印时隐藏 "Academic Metrics" 标题以节省空间 */
+            .metric-item { margin-bottom: 0 !important; font-size: 12pt; }
+            .metric-item span:first-child::after { content: ": "; } /* 给指标加冒号 */
+
+            .sidebar section { margin-bottom: 0 !important; }
+            .sidebar h3.section-title { display: none !important; } /* 隐藏 Core Expertise 标题 */
+            .skills-container { margin-bottom: 5px !important; }
+
+            /* 6. 主体内容全宽铺满，完美适应多页 */
+            .main-content { 
+                width: 100% !important; 
+                margin-left: 0 !important;
+                padding-left: 0 !important;
+                display: block !important;
+            }
+
+            /* 7. 防止内容在跨页时被拦腰截断 */
+            .item, .pub-list li {
                 page-break-inside: avoid;
                 break-inside: avoid;
             }
 
             /* 稍微减小边距，给 A4 纸留出更多宽度空间 */
-            @page { margin: 0.8cm 1.2cm; size: A4 portrait; }
+            @page { margin: 1cm 1.5cm; size: A4 portrait; }
         }
 
+        /* 移动端响应式 */
         @media (max-width: 768px) {
             .container { flex-direction: column; padding: 20px; margin: 10px; display: flex; }
             .sidebar { max-width: 100%; flex: 1; border-right: none; border-bottom: 2px solid var(--border-color); padding-right: 0; padding-bottom: 20px; }
@@ -441,27 +427,37 @@
                     <li>
                         <span class="pub-title">qPrimerDB 2.0: an updated comprehensive gene-specific qPCR primer database for 1172 organisms.</span><br>
                         <strong>Xiaodong Li</strong>, Boyu Meng, Zhi Zhang, Lijuan Wei, Wei Chang, Yuhong Wang, Kai Zhang, Tian Li, Kun Lu.<br>
-                        <span class="pub-journal">Nucleic Acids Research</span> (2025). DOI: 10.1093/NAR/GKAE684 <span class="pub-if">IF: 13.1 (Q1)</span>
+                        <span class="pub-journal">Nucleic Acids Research</span> (2025). DOI: 10.1093/NAR/GKAE684
+        
+         span class="pub-if">IF: 13.1 (Q1)</span>
                     </li>
                     <li>
                         <span class="pub-title">Development of a target capture sequencing SNP genotyping platform for genetic analysis and genomic breeding in rapeseed.</span><br>
                         <strong>Xiaodong Li<sup>#</sup></strong>, Xumei Liu<sup>#</sup>, Yonghai Fan<sup>#</sup>, Shengting Li, Mengna Yu, Mingchao Qian, Yuling Chen, Hongqiao Chen, Xinchun Li, Bei Liu, Xinfu Xu, Cunmin Qu, Jiana Li, Kun Lu. (<sup>#</sup>Co-first author)<br>
-                        <span class="pub-journal">The Crop Journal</span> (2023). DOI: 10.1016/J.CJ.2022.08.008 <span class="pub-if">IF: 5.6 (Q1)</span>
+                        <span class="pub-journal">The Crop Journal</span> (2023). DOI: 10.1016/J.CJ.2022.08.008
+        
+         span class="pub-if">IF: 5.6 (Q1)</span>
                     </li>
                     <li>
                         <span class="pub-title">Exploring silique number in Brassica napus L.: Genetic and molecular advances for improving yield.</span><br>
                         Hui Wang<sup>#</sup>, <strong>Xiaodong Li<sup>#</sup></strong>, Boyu Meng, Yonghai Fan, Shahid Ullah Khan, Mingchao Qian, Minghao Zhang, Haikun Yang, Kun Lu. (<sup>#</sup>Co-first author)<br>
-                        <span class="pub-journal">Plant Biotechnology Journal</span> (2024). DOI: 10.1111/PBI.14309 <span class="pub-if">IF: 10.5 (Q1)</span>
+                        <span class="pub-journal">Plant Biotechnology Journal</span> (2024). DOI: 10.1111/PBI.14309
+        
+         span class="pub-if">IF: 10.5 (Q1)</span>
                     </li>
                     <li>
                         <span class="pub-title">CaHMA1 promotes Cd accumulation in pepper fruit.</span><br>
                         Weihong Xu<sup>#</sup>, He Huang<sup>#</sup>, <strong>Xiaodong Li<sup>#</sup></strong>, Mei Yang, Sunlin Chi, Yu Pan, Nannan Li, Andrew H. Paterson, Yourong Chai, Kun Lu. (<sup>#</sup>Co-first author)<br>
-                        <span class="pub-journal">Journal of Hazardous Materials</span> (2023). DOI: 10.1016/J.JHAZMAT.2023.132480 <span class="pub-if">IF: 11.3 (Q1)</span>
+                        <span class="pub-journal">Journal of Hazardous Materials</span> (2023). DOI: 10.1016/J.JHAZMAT.2023.132480
+        
+         span class="pub-if">IF: 11.3 (Q1)</span>
                     </li>
                     <li>
                         <span class="pub-title">The brassinosteroid-signaling gene BnaC04.BIL1 contributes to plant architecture in Brassica napus.</span><br>
                         Yonghai Fan<sup>#</sup>, Yuling Chen<sup>#</sup>, <strong>Xiaodong Li<sup>#</sup></strong>, Hongqiao Chen, Mengna Yu, Likai Miao, Siyu Wei, Shengting Li, Mingchao Qian, Wei Chang, Umer Mahmood, Shahid Ullah Khan, Lijuan Wei, Cunmin Qu, Jiana Li, Kun Lu. (<sup>#</sup>Co-first author)<br>
-                        <span class="pub-journal">Industrial Crops and Products</span> (2024). DOI: 10.1016/J.INDCROP.2024.118066 <span class="pub-if">IF: 6.2 (Q1)</span>
+                        <span class="pub-journal">Industrial Crops and Products</span> (2024). DOI: 10.1016/J.INDCROP.2024.118066
+        
+         span class="pub-if">IF: 6.2 (Q1)</span>
                     </li>
                 </ul>
             </section>
