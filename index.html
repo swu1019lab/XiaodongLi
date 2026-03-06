@@ -27,7 +27,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 40px auto;
             background: #fff;
             padding: 40px;
@@ -41,14 +41,14 @@
         /* 侧边栏样式 */
         .sidebar {
             flex: 1;
-            max-width: 280px;
+            max-width: 260px;
             border-right: 2px solid var(--border-color);
             padding-right: 30px;
         }
 
         .profile-img {
             width: 100%;
-            max-width: 200px;
+            max-width: 180px;
             border-radius: 8px;
             margin-bottom: 20px;
             display: block;
@@ -63,7 +63,7 @@
         }
 
         .name-title h2 {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--secondary-color);
             font-weight: 400;
             margin: 0 0 20px 0;
@@ -77,7 +77,7 @@
 
         .contact-info li {
             margin-bottom: 12px;
-            font-size: 14px;
+            font-size: 13px;
             display: flex;
             align-items: center;
         }
@@ -105,8 +105,8 @@
             border-radius: 6px;
             margin-bottom: 30px;
         }
-        .metrics h3 { margin-top: 0; font-size: 16px; color: var(--primary-color); }
-        .metric-item { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; }
+        .metrics h3 { margin-top: 0; font-size: 15px; color: var(--primary-color); }
+        .metric-item { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px; }
         .metric-item span:last-child { font-weight: bold; color: var(--accent-color); }
 
         /* 主体内容样式 */
@@ -124,27 +124,37 @@
             padding-bottom: 8px;
             margin-top: 0;
             margin-bottom: 20px;
-            font-size: 22px;
+            font-size: 20px;
         }
 
-        .item { margin-bottom: 20px; }
+        .item { margin-bottom: 22px; }
         .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
-        .item-title { font-weight: 600; font-size: 18px; color: var(--primary-color); }
+        .item-title { font-weight: 600; font-size: 17px; color: var(--primary-color); }
         .item-date { font-size: 14px; color: #666; font-weight: 500; }
-        .item-subtitle { font-style: italic; color: var(--secondary-color); margin-bottom: 8px; }
-        .item-desc { margin: 0; font-size: 14px; color: #444; }
+        .item-subtitle { font-weight: bold; color: var(--secondary-color); margin-bottom: 8px; font-size: 15px;}
+        .item-desc { margin: 0; font-size: 13.5px; color: #444; text-align: justify; line-height: 1.6;}
+        
+        .tool-link {
+            display: inline-block;
+            margin-top: 5px;
+            font-size: 13px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .tool-link:hover { text-decoration: underline; }
 
         /* 核心技能标签 */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-tag { background: #e3f2fd; color: #1976d2; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; }
+        .skills-container { display: flex; flex-wrap: wrap; gap: 8px; }
+        .skill-tag { background: #e3f2fd; color: #1976d2; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
 
         /* 出版物列表 */
         .pub-list { list-style: none; padding: 0; margin: 0; }
-        .pub-list li { margin-bottom: 15px; font-size: 14px; position: relative; padding-left: 20px; }
+        .pub-list li { margin-bottom: 15px; font-size: 14px; position: relative; padding-left: 20px; line-height: 1.6;}
         .pub-list li::before { content: "•"; color: var(--accent-color); position: absolute; left: 0; font-weight: bold; }
-        .pub-title { font-weight: 600; }
+        .pub-title { font-weight: 600; color: #111;}
         .pub-journal { font-style: italic; color: var(--secondary-color); }
-        .pub-if { background: #ffebee; color: #c62828; padding: 2px 6px; border-radius: 4px; font-size: 12px; margin-left: 5px; }
+        .pub-if { background: #ffebee; color: #c62828; padding: 2px 6px; border-radius: 4px; font-size: 12px; margin-left: 5px; font-weight: bold; display: inline-block;}
 
         /* 悬浮按钮 (下载与语言切换) */
         .controls {
@@ -185,34 +195,59 @@
         body.zh-mode div[lang="zh"], body.zh-mode p[lang="zh"], body.zh-mode ul[lang="zh"], body.zh-mode li[lang="zh"], body.zh-mode h1[lang="zh"], body.zh-mode h2[lang="zh"], body.zh-mode h3[lang="zh"] { display: block; }
 
         /* ==================================================== */
-        /* 打印/导出为PDF的样式控制：100% 还原在线布局和色彩 */
+        /* 打印/导出为PDF的样式控制：彻底解决多页布局错位问题 */
         /* ==================================================== */
         @media print {
             * {
-                -webkit-print-color-adjust: exact !important;   /* Chrome, Safari, Edge 强制打印背景色 */
-                print-color-adjust: exact !important;           /* Firefox 强制打印背景色 */
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
             body { 
                 background-color: var(--bg-color); 
+                font-size: 10.5pt;
             }
-            .controls { display: none !important; } /* 打印时仅仅隐藏控制按钮 */
+            .controls { display: none !important; }
+            
             .container { 
                 box-shadow: none; 
                 margin: 0; 
-                padding: 10px 30px; 
+                padding: 0; 
                 width: 100%; 
-                max-width: none; 
-                gap: 40px; 
-                display: flex; 
-                flex-direction: row; 
+                max-width: 100%; 
+                display: block; 
             }
-            @page { margin: 1cm; size: A4 portrait; }
+            
+            .sidebar { 
+                float: left;
+                width: 240px; 
+                border-right: 2px solid var(--border-color); 
+                padding-right: 20px; 
+                height: 100%;
+            }
+            
+            .main-content { 
+                margin-left: 280px;
+                padding-left: 10px;
+            }
+
+            .container::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .item, .metrics, .pub-list li, .name-title, .contact-info {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            @page { margin: 1cm 1.5cm; size: A4 portrait; }
         }
 
-        /* 移动端响应式 */
         @media (max-width: 768px) {
-            .container { flex-direction: column; padding: 20px; margin: 10px; }
+            .container { flex-direction: column; padding: 20px; margin: 10px; display: flex; }
             .sidebar { max-width: 100%; border-right: none; border-bottom: 2px solid var(--border-color); padding-right: 0; padding-bottom: 20px; }
+            .main-content { margin-left: 0; padding-left: 0; }
             .controls { bottom: 20px; right: 20px; }
         }
     </style>
@@ -314,8 +349,6 @@
                     </div>
                     <div class="item-subtitle" lang="en">Ph.D. in Crop Genetics and Breeding</div>
                     <div class="item-subtitle" lang="zh">农学博士 - 作物遗传育种专业</div>
-                    <p class="item-desc" lang="en">Research Focus: Omics database construction, population genetic analysis, and intelligent breeding platforms for rapeseed.</p>
-                    <p class="item-desc" lang="zh">研究方向：油菜多组学数据库构建、群体遗传分析及智能育种平台开发。</p>
                 </div>
                 <div class="item">
                     <div class="item-header">
@@ -342,16 +375,47 @@
                     <span lang="en">Developed Bioinformatics Tools & Platforms</span>
                     <span lang="zh">生信工具与平台开发</span>
                 </h3>
+                
                 <div class="item">
-                    <div class="item-subtitle">BrassicaIBD & DLGP</div>
-                    <p class="item-desc" lang="en">Developed an intelligent breeding platform for rapeseed (BrassicaIBD) integrating multi-omics data. Engineered a Deep Latent Genomic Prediction (DLGP) deep learning model to accelerate modern genomic breeding efficiency.</p>
-                    <p class="item-desc" lang="zh">开发了整合多组学数据的油菜智能育种平台 (BrassicaIBD)。构建了深度潜在基因组预测 (DLGP) 深度学习模型，以提高现代基因组育种效率。</p>
+                    <div class="item-subtitle">Hastat (Gene Haplotype Analysis Tool)</div>
+                    <p class="item-desc" lang="en">An independently developed modular toolkit for comprehensive gene haplotype analysis and visualization in natural populations. It comprises four core modules: View (efficient genotype processing via <i>gffutils</i> and <i>pysam</i>, calculating diversity indices like π and FST), Stat (rigorous phenotypic association via ANOVA/Tukey's HSD), Network (MST/MSN evolutionary trajectory construction), and Plot (publication-quality, highly customizable visualization integrating gene structures using TOML configurations).</p>
+                    <p class="item-desc" lang="zh">基于 Python 自主开发的模块化基因单倍型分析与可视化工具。包含四大核心模块：数据视图 (高效处理变异数据及计算 π、FST 等遗传统计量)、统计分析 (基于 ANOVA 与 Tukey's HSD 的表型变异严格统计评估)、网络构建 (MST/MSN 进化网状关系解析) 以及可视化 (结合 TOML 配置实现基因结构与单倍型数据的深度整合与出版级高度定制化绘图)。</p>
+                    <a href="https://github.com/swu1019lab/hastat" class="tool-link" target="_blank"><i class="fas fa-link"></i> https://github.com/swu1019lab/hastat</a>
                 </div>
+
                 <div class="item">
-                    <div class="item-subtitle">PGFAT & GWASNexus</div>
-                    <p class="item-desc" lang="en">Created the Pan-Gene Family Analysis Toolkit (PGFAT), a Python-based command-line pipeline for high-throughput genomic data. Developed GWASNexus for advanced post-GWAS analysis.</p>
-                    <p class="item-desc" lang="zh">创建了泛基因家族分析工具包 (PGFAT)，这是一个基于 Python 的高通量基因组数据命令行分析流程。开发了用于 GWAS 后续深度分析的 GWASNexus 工具。</p>
+                    <div class="item-subtitle">GWASNexus (Post-GWAS Analysis Platform)</div>
+                    <p class="item-desc" lang="en">A comprehensive analysis platform designed to facilitate system-wide genetic analysis in crops. It integrates GWAS scanning, dynamic LD-based clustering (replacing fixed physical distances), epistasis detection, and genetic network construction for pleiotropy. GWASNexus automatically aggregates outputs into a unified, interactive HTML dashboard.</p>
+                    <p class="item-desc" lang="zh">一款专为作物系统级遗传分析设计的全面 Post-GWAS 分析平台。集成了 GWAS 扫描、基于动态 LD 的聚类算法、上位性效应检测以及揭示多效性的遗传网络构建功能，并将所有输出结果自动汇聚成统一的交互式 HTML 报告。</p>
                 </div>
+
+                <div class="item">
+                    <div class="item-subtitle">BnaPan50T (Target Capture Sequencing Platform)</div>
+                    <p class="item-desc" lang="en">A 50K liquid chip (Target Capture Sequencing) SNP genotyping platform developed for rapeseed. It contains 54,765 core SNPs (including pan-genomic and trait-associated markers). Validated in a DH population, it achieved 60% target region specificity, 78% coverage uniformity, and 93% genotyping accuracy. It has been successfully applied to QTL mapping and DNA fingerprinting, providing a highly accurate and cost-effective molecular marker resource for genomic breeding.</p>
+                    <p class="item-desc" lang="zh">为油菜开发的一款 50K SNP 靶向捕获测序 (TCS) 液相芯片平台。平台包含 54,765 个核心 SNP 标记。在 DH 群体测试中，该芯片展现出 60% 的目标区域特异性、78% 的覆盖均一性以及 93% 的基因分型准确性。该平台具备高精准度与高性价比，成功应用于 QTL 定位与 DNA 指纹图谱构建，为油菜遗传分析与基因组育种提供了宝贵的分子资源。</p>
+                </div>
+
+                <div class="item">
+                    <div class="item-subtitle">qPrimer & qPrimerDB 2.0</div>
+                    <p class="item-desc" lang="en">A comprehensive gene-specific qPCR primer database for 1172 organisms, expanded to contain 430 million primer pairs covering 43 million genes. To support genome-scale primer design, we developed the Python-based <i>qPrimer</i> tool for high-throughput, highly specific design via parallel computing. The platform offers a complete online system for primer search, design, evaluation, and submission, significantly accelerating gene expression research.</p>
+                    <p class="item-desc" lang="zh">涵盖 1172 种生物的基因特异性 qPCR 引物综合数据库。平台大幅扩展，收录了 4.3 亿个引物对（覆盖 4300 万个基因）。为满足基因组规模需求，自主开发了基于 Python 的高通量 <i>qPrimer</i> 工具，通过并行计算及特异性优化显著提升设计效率。平台提供完整的在线引物搜索、设计、检测和标注系统，极大简化了基因表达分析流程。</p>
+                    <a href="https://qprimerdb.biodb.org/" class="tool-link" target="_blank"><i class="fas fa-link"></i> https://qprimerdb.biodb.org/</a> &nbsp; | &nbsp;
+                    <a href="https://github.com/swu1019lab/qPrimer" class="tool-link" target="_blank"><i class="fab fa-github"></i> qPrimer Tool</a>
+                </div>
+
+                <div class="item">
+                    <div class="item-subtitle">PGFAT (Pan-Gene Family Analysis Toolkit)</div>
+                    <p class="item-desc" lang="en">A Python-based command-line pipeline designed to handle complex multi-genome datasets. It automates workflows from HMM-based member identification to pan-genomic classification, featuring a dual-strategy phenotype association module and an advanced visualization module.</p>
+                    <p class="item-desc" lang="zh">基于 Python 开发的高通量命令行分析流程。自动化了从基于 HMM 的成员鉴定、系统发育分析到泛基因组分类的全流程。内置了双策略表型关联模块，并集成了可自动生成高质量矢量图的可视化模块。</p>
+                    <a href="https://github.com/swu1019lab/PGFAT" class="tool-link" target="_blank"><i class="fas fa-link"></i> https://github.com/swu1019lab/PGFAT</a>
+                </div>
+
+                <div class="item">
+                    <div class="item-subtitle">BrassicaIBD (Intelligent Breeding Platform for Rapeseed)</div>
+                    <p class="item-desc" lang="en">An intelligent breeding platform for rapeseed based on B/S architecture. It integrates three core modules: germplasm query, gene mining, and breeding design (iTrait, iArray, and iGS), achieving one-stop core gene mining and targeted breeding design.</p>
+                    <p class="item-desc" lang="zh">基于 B/S 架构开发的油菜智慧育种平台。集成了种质查询、基因挖掘（内嵌多种在线工具）和育种设计（iTrait, iArray, iGS）三个核心模块，实现了海量种质资源管理、核心基因一站式挖掘及靶向育种设计。</p>
+                </div>
+
             </section>
 
             <section>
@@ -363,48 +427,44 @@
                     <li>
                         <span class="pub-title">Hastat: Mining Favorable Haplotypes of Trait-Associated Genes for Breeding Improvement in Natural Populations.</span><br>
                         <strong>Xiaodong Li</strong>, Yuhong Wang, Boyu Meng, Zhixuan Qin, Minghao Zhang, Jiaming Song, Kun Lu.<br>
-                        <span class="pub-journal">Horticulture Research</span> (2026). DOI: 10.1093/HR/UHAG018 <span class="pub-if">IF: 8.5 (Q1)</span>
+                        <span class="pub-journal">Horticulture Research</span> (2026). DOI: 10.1093/HR/UHAG018
+        
+         span class="pub-if">IF: 8.5 (Q1)</span>
                     </li>
                     <li>
                         <span class="pub-title">qPrimerDB 2.0: an updated comprehensive gene-specific qPCR primer database for 1172 organisms.</span><br>
                         <strong>Xiaodong Li</strong>, Boyu Meng, Zhi Zhang, Lijuan Wei, Wei Chang, Yuhong Wang, Kai Zhang, Tian Li, Kun Lu.<br>
-                        <span class="pub-journal">Nucleic Acids Research</span> (2025). DOI: 10.1093/NAR/GKAE684 <span class="pub-if">IF: 13.1 (Q1)</span>
+                        <span class="pub-journal">Nucleic Acids Research</span> (2025). DOI: 10.1093/NAR/GKAE684
+        
+         span class="pub-if">IF: 13.1 (Q1)</span>
                     </li>
                     <li>
                         <span class="pub-title">Development of a target capture sequencing SNP genotyping platform for genetic analysis and genomic breeding in rapeseed.</span><br>
-                        <strong>Xiaodong Li</strong>, Xumei Liu, Yonghai Fan, Shengting Li, ... Kun Lu.<br>
-                        <span class="pub-journal">The Crop Journal</span> (2023). DOI: 10.1016/J.CJ.2022.08.008 <span class="pub-if">IF: 5.6 (Q1)</span>
+                        <strong>Xiaodong Li<sup>#</sup></strong>, Xumei Liu<sup>#</sup>, Yonghai Fan, Shengting Li, Mengna Yu, Mingchao Qian, Yuling Chen, Hongqiao Chen, Xinchun Li, Bei Liu, Xinfu Xu, Cunmin Qu, Jiana Li, Kun Lu. (<sup>#</sup>Co-first author)<br>
+                        <span class="pub-journal">The Crop Journal</span> (2023). DOI: 10.1016/J.CJ.2022.08.008
+        
+         span class="pub-if">IF: 5.6 (Q1)</span>
                     </li>
                     <li>
                         <span class="pub-title">Exploring silique number in Brassica napus L.: Genetic and molecular advances for improving yield.</span><br>
                         Hui Wang<sup>#</sup>, <strong>Xiaodong Li<sup>#</sup></strong>, Boyu Meng, Yonghai Fan, Shahid Ullah Khan, Mingchao Qian, Minghao Zhang, Haikun Yang, Kun Lu. (<sup>#</sup>Co-first author)<br>
-                        <span class="pub-journal">Plant Biotechnology Journal</span> (2024). DOI: 10.1111/PBI.14309 <span class="pub-if">IF: 10.5 (Q1)</span>
+                        <span class="pub-journal">Plant Biotechnology Journal</span> (2024). DOI: 10.1111/PBI.14309
+        
+         span class="pub-if">IF: 10.5 (Q1)</span>
                     </li>
                     <li>
                         <span class="pub-title">CaHMA1 promotes Cd accumulation in pepper fruit.</span><br>
                         Weihong Xu<sup>#</sup>, He Huang<sup>#</sup>, <strong>Xiaodong Li</strong>, Mei Yang, Sunlin Chi, Yu Pan, Nannan Li, Andrew H. Paterson, Yourong Chai, Kun Lu.<br>
-                        <span class="pub-journal">Journal of Hazardous Materials</span> (2023). DOI: 10.1016/J.JHAZMAT.2023.132480 <span class="pub-if">IF: 11.3 (Q1)</span>
+                        <span class="pub-journal">Journal of Hazardous Materials</span> (2023). DOI: 10.1016/J.JHAZMAT.2023.132480
+        
+         span class="pub-if">IF: 11.3 (Q1)</span>
                     </li>
                     <li>
                         <span class="pub-title">The brassinosteroid-signaling gene BnaC04.BIL1 contributes to plant architecture in Brassica napus.</span><br>
-                        Yonghai Fan<sup>#</sup>, Yuling Chen<sup>#</sup>, <strong>Xiaodong Li</strong>, Hongqiao Chen, Mengna Yu, Likai Miao, Siyu Wei, Shengting Li, Mingchao Qian, Wei Chang, Umer Mahmood, Shahid Ullah Khan, Lijuan Wei, Cunmin Qu, Jiana Li, Kun Lu.<br>
-                        <span class="pub-journal">Industrial Crops and Products</span> (2024). DOI: 10.1016/J.INDCROP.2024.118066 <span class="pub-if">IF: 6.2 (Q1)</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section>
-                <h3 class="section-title">
-                    <span lang="en">Academic Service</span>
-                    <span lang="zh">学术服务</span>
-                </h3>
-                <ul class="pub-list">
-                    <li>
-                        <strong lang="en">Peer Reviewer:</strong> 
-                        <strong lang="zh">同行评审专家:</strong> 
-                        <em>Horticulture Research</em> 
-                        <span lang="en">(1 review, Jan 2026).</span>
-                        <span lang="zh">(1篇审稿, 2026年1月)。</span>
+                        Yonghai Fan<sup>#</sup>, Yuling Chen<sup>#</sup>, <strong>Xiaodong Li<sup>#</sup></strong>, Hongqiao Chen, Mengna Yu, Likai Miao, Siyu Wei, Shengting Li, Mingchao Qian, Wei Chang, Umer Mahmood, Shahid Ullah Khan, Lijuan Wei, Cunmin Qu, Jiana Li, Kun Lu. (<sup>#</sup>Co-first author)<br>
+                        <span class="pub-journal">Industrial Crops and Products</span> (2024). DOI: 10.1016/J.INDCROP.2024.118066
+        
+         span class="pub-if">IF: 6.2 (Q1)</span>
                     </li>
                 </ul>
             </section>
