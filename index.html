@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xiaodong Li (黎小东) - Academic CV</title>
+    <title>Xiaodong Li - Academic CV</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* 全局样式 - 现代化在线阅读体验 */
+        /* ==================================================== */
+        /* 全局样式与变量配置 */
+        /* ==================================================== */
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #34495e;
@@ -15,118 +17,37 @@
             --text-color: #333;
             --border-color: #e9ecef;
         }
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: var(--text-color); background-color: var(--bg-color); margin: 0; padding: 0; transition: all 0.3s ease; }
         
-        body {
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-            transition: all 0.3s ease;
-        }
+        /* 布局容器 */
+        .container { max-width: 1050px; margin: 40px auto; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-radius: 8px; display: flex; gap: 40px; position: relative; }
+        .sidebar { flex: 0 0 260px; max-width: 260px; border-right: 2px solid var(--border-color); padding-right: 30px; }
+        .main-content { flex: 1; min-width: 0; }
 
-        .container {
-            max-width: 1050px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 40px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-radius: 8px;
-            display: flex;
-            gap: 40px;
-            position: relative;
-        }
+        /* 侧边栏模块 */
+        .profile-img { width: 100%; max-width: 180px; border-radius: 8px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; }
+        .name-title h1 { font-size: 28px; color: var(--primary-color); margin: 0 0 5px 0; }
+        .name-title h2 { font-size: 15px; color: var(--secondary-color); font-weight: 400; margin: 0 0 20px 0; }
+        
+        .contact-info { list-style: none; padding: 0; margin-bottom: 30px; }
+        .contact-info li { margin-bottom: 12px; font-size: 13px; display: flex; align-items: center; }
+        .contact-info i { width: 20px; color: var(--accent-color); margin-right: 10px; }
+        .contact-info a { color: var(--text-color); text-decoration: none; word-break: break-all; }
+        .contact-info a:hover { color: var(--accent-color); }
 
-        /* 侧边栏样式 */
-        .sidebar {
-            flex: 1;
-            max-width: 260px;
-            border-right: 2px solid var(--border-color);
-            padding-right: 30px;
-        }
-
-        .profile-img {
-            width: 100%;
-            max-width: 180px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .name-title h1 {
-            font-size: 28px;
-            color: var(--primary-color);
-            margin: 0 0 5px 0;
-        }
-
-        .name-title h2 {
-            font-size: 15px;
-            color: var(--secondary-color);
-            font-weight: 400;
-            margin: 0 0 20px 0;
-        }
-
-        .contact-info {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-        }
-
-        .contact-info li {
-            margin-bottom: 12px;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-info i {
-            width: 20px;
-            color: var(--accent-color);
-            margin-right: 10px;
-        }
-
-        .contact-info a {
-            color: var(--text-color);
-            text-decoration: none;
-            word-break: break-all;
-        }
-
-        .contact-info a:hover {
-            color: var(--accent-color);
-        }
-
-        /* 指标数据展示 */
-        .metrics {
-            background: #f1f3f5;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 30px;
-        }
+        .metrics { background: #f1f3f5; padding: 15px; border-radius: 6px; margin-bottom: 30px; }
         .metrics h3 { margin-top: 0; font-size: 15px; color: var(--primary-color); }
         .metric-item { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px; }
         .metric-item span:last-child { font-weight: bold; color: var(--accent-color); }
 
-        /* 主体内容样式 */
-        .main-content {
-            flex: 2;
-        }
+        .skills-container { display: flex; flex-wrap: wrap; gap: 8px; }
+        .skill-tag { background: #e3f2fd; color: #1976d2; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
 
-        section {
-            margin-bottom: 35px;
-        }
-
-        h3.section-title {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 8px;
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 20px;
-        }
-
+        /* 主体内容模块 */
+        section { margin-bottom: 35px; }
+        h3.section-title { color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; margin-top: 0; margin-bottom: 20px; font-size: 20px; }
+        
         .item { margin-bottom: 22px; }
         .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
         .item-title { font-weight: 600; font-size: 17px; color: var(--primary-color); }
@@ -134,120 +55,68 @@
         .item-subtitle { font-weight: bold; color: var(--secondary-color); margin-bottom: 8px; font-size: 15px;}
         .item-desc { margin: 0; font-size: 13.5px; color: #444; text-align: justify; line-height: 1.6;}
         
-        .tool-link {
-            display: inline-block;
-            margin-top: 5px;
-            font-size: 13px;
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
+        /* 动态增加的荣誉样式 */
+        .honors-box { background: #fff8e1; border-left: 4px solid #ffca28; padding: 10px 15px; margin-top: 15px; font-size: 13px; color: #555; border-radius: 0 4px 4px 0; }
+        .summary-box { font-weight: 600; color: var(--primary-color); margin-bottom: 15px; font-size: 14px; }
+
+        .tool-link { display: inline-block; margin-top: 5px; font-size: 13px; color: var(--accent-color); text-decoration: none; font-weight: 600; margin-right: 15px;}
         .tool-link:hover { text-decoration: underline; }
 
-        /* 核心技能标签 */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 8px; }
-        .skill-tag { background: #e3f2fd; color: #1976d2; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
-
-        /* 出版物列表 */
         .pub-list { list-style: none; padding: 0; margin: 0; }
         .pub-list li { margin-bottom: 15px; font-size: 14px; position: relative; padding-left: 20px; line-height: 1.6;}
         .pub-list li::before { content: "•"; color: var(--accent-color); position: absolute; left: 0; font-weight: bold; }
         .pub-title { font-weight: 600; color: #111;}
         .pub-journal { font-style: italic; color: var(--secondary-color); }
-        .pub-if { background: #ffebee; color: #c62828; padding: 2px 6px; border-radius: 4px; font-size: 12px; margin-left: 5px; font-weight: bold; display: inline-block;}
+        .pub-if { background: #ffebee; color: #c62828; padding: 2px 6px; border-radius: 4px; font-size: 12px; margin-left: 5px; font-weight: bold; display: inline-block; }
 
-        /* 悬浮按钮 (下载与语言切换) */
-        .controls {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 1000;
-        }
-
-        .btn {
-            background: var(--accent-color);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
+        /* 悬浮控制按钮 */
+        .controls { position: fixed; bottom: 40px; right: 40px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; }
+        .btn { background: var(--accent-color); color: white; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3); transition: all 0.3s ease; cursor: pointer; border: none; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .btn:hover { background: #2980b9; transform: translateY(-2px); }
         .btn-lang { background: var(--primary-color); }
         .btn-lang:hover { background: #1a252f; }
 
-        /* 中英文显示逻辑 */
+        /* 语言切换逻辑 */
         [lang="zh"] { display: none; }
         body.zh-mode [lang="en"] { display: none; }
         body.zh-mode [lang="zh"] { display: inline-block; }
         body.zh-mode div[lang="zh"], body.zh-mode p[lang="zh"], body.zh-mode ul[lang="zh"], body.zh-mode li[lang="zh"], body.zh-mode h1[lang="zh"], body.zh-mode h2[lang="zh"], body.zh-mode h3[lang="zh"] { display: block; }
 
-        /* ==================================================== */
-        /* 打印/导出为PDF的样式控制：彻底解决多页布局错位问题 */
-        /* ==================================================== */
+        /* PDF 打印适配 */
         @media print {
-            * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-            body { 
-                background-color: var(--bg-color); 
-                font-size: 10.5pt;
-            }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            body { background-color: #fff; font-size: 10.5pt; }
             .controls { display: none !important; }
             
-            .container { 
-                box-shadow: none; 
-                margin: 0; 
-                padding: 0; 
-                width: 100%; 
-                max-width: 100%; 
-                display: block; 
-            }
-            
-            .sidebar { 
-                float: left;
-                width: 240px; 
-                border-right: 2px solid var(--border-color); 
-                padding-right: 20px; 
-                height: 100%;
-            }
-            
-            .main-content { 
-                margin-left: 280px;
-                padding-left: 10px;
-            }
+            .container { box-shadow: none !important; margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; display: block !important; }
+            .sidebar { width: 100% !important; max-width: 100% !important; border-right: none !important; border-bottom: 2px solid var(--primary-color) !important; padding-right: 0 !important; padding-bottom: 15px !important; margin-bottom: 25px !important; }
+            .sidebar::after { content: ""; display: table; clear: both; }
 
-            .container::after {
-                content: "";
-                display: table;
-                clear: both;
-            }
+            .profile-img { float: right; width: 110px !important; max-width: 110px !important; margin: 0 0 10px 20px !important; }
+            .name-title h2 { margin-bottom: 10px !important; }
+            
+            .contact-info { display: flex !important; flex-wrap: wrap !important; gap: 5px 20px !important; margin-bottom: 10px !important; }
+            .contact-info li { margin-bottom: 0 !important; }
 
-            .item, .metrics, .pub-list li, .name-title, .contact-info {
-                page-break-inside: avoid;
-                break-inside: avoid;
-            }
+            .metrics { background: transparent !important; padding: 0 !important; margin-bottom: 10px !important; display: flex !important; gap: 20px !important; }
+            .metrics h3 { display: none !important; } 
+            .metric-item { margin-bottom: 0 !important; font-size: 12pt; }
+            .metric-item span:first-child::after { content: ": "; } 
+
+            .sidebar section { margin-bottom: 0 !important; }
+            .sidebar h3.section-title { display: none !important; } 
+            .skills-container { margin-bottom: 5px !important; }
+
+            .main-content { width: 100% !important; margin-left: 0 !important; padding-left: 0 !important; display: block !important; }
+            .item, .pub-list li, .honors-box { page-break-inside: avoid; break-inside: avoid; }
 
             @page { margin: 1cm 1.5cm; size: A4 portrait; }
         }
 
+        /* 移动端响应式 */
         @media (max-width: 768px) {
             .container { flex-direction: column; padding: 20px; margin: 10px; display: flex; }
-            .sidebar { max-width: 100%; border-right: none; border-bottom: 2px solid var(--border-color); padding-right: 0; padding-bottom: 20px; }
-            .main-content { margin-left: 0; padding-left: 0; }
+            .sidebar { max-width: 100%; flex: 1; border-right: none; border-bottom: 2px solid var(--border-color); padding-right: 0; padding-bottom: 20px; }
             .controls { bottom: 20px; right: 20px; }
         }
     </style>
@@ -260,235 +129,223 @@
         </button>
         <button class="btn" onclick="window.print()">
             <i class="fas fa-file-pdf"></i> 
-            <span lang="en">Download CV (PDF)</span>
-            <span lang="zh">下载简历 (PDF)</span>
+            <span lang="en">Download CV</span>
+            <span lang="zh">下载简历</span>
         </button>
     </div>
 
-    <div class="container">
-        <div class="sidebar">
-            <img src="profile.jpg" alt="Xiaodong Li" class="profile-img">
-            
-            <div class="name-title">
-                <h1>
-                    <span lang="en">Xiaodong Li</span>
-                    <span lang="zh">黎小东</span>
-                </h1>
-                <h2>
-                    <span lang="en">Ph.D. Candidate in Crop Genetics & Breeding</span>
-                    <span lang="zh">作物遗传育种专业博士生</span>
-                </h2>
-            </div>
+    <div id="loading" style="text-align:center; padding: 100px; font-size: 20px; color: #666;">
+        <i class="fas fa-spinner fa-spin"></i> Loading CV Data...
+    </div>
 
-            <ul class="contact-info">
-                <li><i class="fas fa-map-marker-alt"></i> 
-                    <span lang="en">College of Agronomy and Biotechnology, Southwest University, Chongqing, China</span>
-                    <span lang="zh">西南大学 农学与生物科技学院, 中国重庆</span>
-                </li>
-                <li><i class="fas fa-envelope"></i> <a href="mailto:lxd1997xy@email.swu.edu.cn">lxd1997xy@email.swu.edu.cn</a></li>
-                <li><i class="fab fa-github"></i> <a href="https://github.com/swu1019lab" target="_blank">swu1019lab</a></li>
-                <li><i class="fab fa-orcid"></i> <a href="https://orcid.org/0009-0007-9666-7967" target="_blank">0009-0007-9666-7967</a></li>
-                <li><i class="fas fa-id-card"></i> Web of Science: PKR-5239-2026</li>
-            </ul>
-
-            <div class="metrics">
-                <h3>
-                    <span lang="en">Academic Metrics</span>
-                    <span lang="zh">学术指标</span>
-                </h3>
-                <div class="metric-item">
-                    <span lang="en">Total Publications</span><span lang="zh">总发文量</span>
-                    <span>22</span>
-                </div>
-                <div class="metric-item">
-                    <span lang="en">H-index</span><span lang="zh">H指数</span>
-                    <span>10</span>
-                </div>
-                <div class="metric-item">
-                    <span lang="en">Sum of Times Cited</span><span lang="zh">总被引频次</span>
-                    <span>287</span>
-                </div>
-            </div>
-
-            <section>
-                <h3 class="section-title">
-                    <span lang="en">Core Expertise</span>
-                    <span lang="zh">核心专长</span>
-                </h3>
-                <div class="skills-container" lang="en">
-                    <span class="skill-tag">Bioinformatics</span>
-                    <span class="skill-tag">Population Genetics</span>
-                    <span class="skill-tag">Genome Assembly</span>
-                    <span class="skill-tag">Multi-Omics Analysis</span>
-                    <span class="skill-tag">Database Construction</span>
-                    <span class="skill-tag">Python Development</span>
-                </div>
-                <div class="skills-container" lang="zh">
-                    <span class="skill-tag">生物信息学</span>
-                    <span class="skill-tag">群体遗传学</span>
-                    <span class="skill-tag">基因组组装</span>
-                    <span class="skill-tag">多组学分析</span>
-                    <span class="skill-tag">数据库构建</span>
-                    <span class="skill-tag">Python工具开发</span>
-                </div>
-            </section>
-        </div>
-
-        <div class="main-content">
-            <section>
-                <h3 class="section-title">
-                    <span lang="en">Education</span>
-                    <span lang="zh">教育经历</span>
-                </h3>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title" lang="en">Southwest University</span>
-                        <span class="item-title" lang="zh">西南大学</span>
-                        <span class="item-date" lang="en">2022.09 – 2026.06 (Expected)</span>
-                        <span class="item-date" lang="zh">2022.09 – 2026.06 (预计毕业)</span>
-                    </div>
-                    <div class="item-subtitle" lang="en">Ph.D. in Crop Genetics and Breeding</div>
-                    <div class="item-subtitle" lang="zh">农学博士 - 作物遗传育种专业</div>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title" lang="en">Southwest University</span>
-                        <span class="item-title" lang="zh">西南大学</span>
-                        <span class="item-date">2020.09 – 2022.10</span>
-                    </div>
-                    <div class="item-subtitle" lang="en">M.S. in Genetics</div>
-                    <div class="item-subtitle" lang="zh">理学硕士 - 遗传学专业</div>
-                </div>
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title" lang="en">Southwest University</span>
-                        <span class="item-title" lang="zh">西南大学</span>
-                        <span class="item-date">2016.09 – 2020.06</span>
-                    </div>
-                    <div class="item-subtitle" lang="en">B.S. in Plant Science and Technology</div>
-                    <div class="item-subtitle" lang="zh">农学学士 - 植物科学与技术专业</div>
-                </div>
-            </section>
-
-            <section>
-                <h3 class="section-title">
-                    <span lang="en">Developed Bioinformatics Tools & Platforms</span>
-                    <span lang="zh">生信工具与平台开发</span>
-                </h3>
-                
-                <div class="item">
-                    <div class="item-subtitle">Hastat (Gene Haplotype Analysis Tool)</div>
-                    <p class="item-desc" lang="en">An independently developed modular toolkit for comprehensive gene haplotype analysis and visualization in natural populations. It comprises four core modules: View (efficient genotype processing via <i>gffutils</i> and <i>pysam</i>, calculating diversity indices like π and FST), Stat (rigorous phenotypic association via ANOVA/Tukey's HSD), Network (MST/MSN evolutionary trajectory construction), and Plot (publication-quality, highly customizable visualization integrating gene structures using TOML configurations).</p>
-                    <p class="item-desc" lang="zh">基于 Python 自主开发的模块化基因单倍型分析与可视化工具。包含四大核心模块：数据视图 (高效处理变异数据及计算 π、FST 等遗传统计量)、统计分析 (基于 ANOVA 与 Tukey's HSD 的表型变异严格统计评估)、网络构建 (MST/MSN 进化网状关系解析) 以及可视化 (结合 TOML 配置实现基因结构与单倍型数据的深度整合与出版级高度定制化绘图)。</p>
-                    <a href="https://github.com/swu1019lab/hastat" class="tool-link" target="_blank"><i class="fas fa-link"></i> https://github.com/swu1019lab/hastat</a>
-                </div>
-
-                <div class="item">
-                    <div class="item-subtitle">GWASNexus (Post-GWAS Analysis Platform)</div>
-                    <p class="item-desc" lang="en">A comprehensive analysis platform designed to facilitate system-wide genetic analysis in crops. It integrates GWAS scanning, dynamic LD-based clustering (replacing fixed physical distances), epistasis detection, and genetic network construction for pleiotropy. GWASNexus automatically aggregates outputs into a unified, interactive HTML dashboard.</p>
-                    <p class="item-desc" lang="zh">一款专为作物系统级遗传分析设计的全面 Post-GWAS 分析平台。集成了 GWAS 扫描、基于动态 LD 的聚类算法、上位性效应检测以及揭示多效性的遗传网络构建功能，并将所有输出结果自动汇聚成统一的交互式 HTML 报告。</p>
-                </div>
-
-                <div class="item">
-                    <div class="item-subtitle">BnaPan50T (Target Capture Sequencing Platform)</div>
-                    <p class="item-desc" lang="en">A 50K liquid chip (Target Capture Sequencing) SNP genotyping platform developed for rapeseed. It contains 54,765 core SNPs (including pan-genomic and trait-associated markers). Validated in a DH population, it achieved 60% target region specificity, 78% coverage uniformity, and 93% genotyping accuracy. It has been successfully applied to QTL mapping and DNA fingerprinting, providing a highly accurate and cost-effective molecular marker resource for genomic breeding.</p>
-                    <p class="item-desc" lang="zh">为油菜开发的一款 50K SNP 靶向捕获测序 (TCS) 液相芯片平台。平台包含 54,765 个核心 SNP 标记。在 DH 群体测试中，该芯片展现出 60% 的目标区域特异性、78% 的覆盖均一性以及 93% 的基因分型准确性。该平台具备高精准度与高性价比，成功应用于 QTL 定位与 DNA 指纹图谱构建，为油菜遗传分析与基因组育种提供了宝贵的分子资源。</p>
-                </div>
-
-                <div class="item">
-                    <div class="item-subtitle">qPrimer & qPrimerDB 2.0</div>
-                    <p class="item-desc" lang="en">A comprehensive gene-specific qPCR primer database for 1172 organisms, expanded to contain 430 million primer pairs covering 43 million genes. To support genome-scale primer design, we developed the Python-based <i>qPrimer</i> tool for high-throughput, highly specific design via parallel computing. The platform offers a complete online system for primer search, design, evaluation, and submission, significantly accelerating gene expression research.</p>
-                    <p class="item-desc" lang="zh">涵盖 1172 种生物的基因特异性 qPCR 引物综合数据库。平台大幅扩展，收录了 4.3 亿个引物对（覆盖 4300 万个基因）。为满足基因组规模需求，自主开发了基于 Python 的高通量 <i>qPrimer</i> 工具，通过并行计算及特异性优化显著提升设计效率。平台提供完整的在线引物搜索、设计、检测和标注系统，极大简化了基因表达分析流程。</p>
-                    <a href="https://qprimerdb.biodb.org/" class="tool-link" target="_blank"><i class="fas fa-link"></i> https://qprimerdb.biodb.org/</a> &nbsp; | &nbsp;
-                    <a href="https://github.com/swu1019lab/qPrimer" class="tool-link" target="_blank"><i class="fab fa-github"></i> qPrimer Tool</a>
-                </div>
-
-                <div class="item">
-                    <div class="item-subtitle">PGFAT (Pan-Gene Family Analysis Toolkit)</div>
-                    <p class="item-desc" lang="en">A Python-based command-line pipeline designed to handle complex multi-genome datasets. It automates workflows from HMM-based member identification to pan-genomic classification, featuring a dual-strategy phenotype association module and an advanced visualization module.</p>
-                    <p class="item-desc" lang="zh">基于 Python 开发的高通量命令行分析流程。自动化了从基于 HMM 的成员鉴定、系统发育分析到泛基因组分类的全流程。内置了双策略表型关联模块，并集成了可自动生成高质量矢量图的可视化模块。</p>
-                    <a href="https://github.com/swu1019lab/PGFAT" class="tool-link" target="_blank"><i class="fas fa-link"></i> https://github.com/swu1019lab/PGFAT</a>
-                </div>
-
-                <div class="item">
-                    <div class="item-subtitle">BrassicaIBD (Intelligent Breeding Platform for Rapeseed)</div>
-                    <p class="item-desc" lang="en">An intelligent breeding platform for rapeseed based on B/S architecture. It integrates three core modules: germplasm query, gene mining, and breeding design (iTrait, iArray, and iGS), achieving one-stop core gene mining and targeted breeding design.</p>
-                    <p class="item-desc" lang="zh">基于 B/S 架构开发的油菜智慧育种平台。集成了种质查询、基因挖掘（内嵌多种在线工具）和育种设计（iTrait, iArray, iGS）三个核心模块，实现了海量种质资源管理、核心基因一站式挖掘及靶向育种设计。</p>
-                </div>
-
-            </section>
-
-            <section>
-                <h3 class="section-title">
-                    <span lang="en">Selected Publications</span>
-                    <span lang="zh">代表性论文</span>
-                </h3>
-                <ul class="pub-list">
-                    <li>
-                        <span class="pub-title">Hastat: Mining Favorable Haplotypes of Trait-Associated Genes for Breeding Improvement in Natural Populations.</span><br>
-                        <strong>Xiaodong Li</strong>, Yuhong Wang, Boyu Meng, Zhixuan Qin, Minghao Zhang, Jiaming Song, Kun Lu.<br>
-                        <span class="pub-journal">Horticulture Research</span> (2026). DOI: 10.1093/HR/UHAG018
-        
-         span class="pub-if">IF: 8.5 (Q1)</span>
-                    </li>
-                    <li>
-                        <span class="pub-title">qPrimerDB 2.0: an updated comprehensive gene-specific qPCR primer database for 1172 organisms.</span><br>
-                        <strong>Xiaodong Li</strong>, Boyu Meng, Zhi Zhang, Lijuan Wei, Wei Chang, Yuhong Wang, Kai Zhang, Tian Li, Kun Lu.<br>
-                        <span class="pub-journal">Nucleic Acids Research</span> (2025). DOI: 10.1093/NAR/GKAE684
-        
-         span class="pub-if">IF: 13.1 (Q1)</span>
-                    </li>
-                    <li>
-                        <span class="pub-title">Development of a target capture sequencing SNP genotyping platform for genetic analysis and genomic breeding in rapeseed.</span><br>
-                        <strong>Xiaodong Li<sup>#</sup></strong>, Xumei Liu<sup>#</sup>, Yonghai Fan, Shengting Li, Mengna Yu, Mingchao Qian, Yuling Chen, Hongqiao Chen, Xinchun Li, Bei Liu, Xinfu Xu, Cunmin Qu, Jiana Li, Kun Lu. (<sup>#</sup>Co-first author)<br>
-                        <span class="pub-journal">The Crop Journal</span> (2023). DOI: 10.1016/J.CJ.2022.08.008
-        
-         span class="pub-if">IF: 5.6 (Q1)</span>
-                    </li>
-                    <li>
-                        <span class="pub-title">Exploring silique number in Brassica napus L.: Genetic and molecular advances for improving yield.</span><br>
-                        Hui Wang<sup>#</sup>, <strong>Xiaodong Li<sup>#</sup></strong>, Boyu Meng, Yonghai Fan, Shahid Ullah Khan, Mingchao Qian, Minghao Zhang, Haikun Yang, Kun Lu. (<sup>#</sup>Co-first author)<br>
-                        <span class="pub-journal">Plant Biotechnology Journal</span> (2024). DOI: 10.1111/PBI.14309
-        
-         span class="pub-if">IF: 10.5 (Q1)</span>
-                    </li>
-                    <li>
-                        <span class="pub-title">CaHMA1 promotes Cd accumulation in pepper fruit.</span><br>
-                        Weihong Xu<sup>#</sup>, He Huang<sup>#</sup>, <strong>Xiaodong Li</strong>, Mei Yang, Sunlin Chi, Yu Pan, Nannan Li, Andrew H. Paterson, Yourong Chai, Kun Lu.<br>
-                        <span class="pub-journal">Journal of Hazardous Materials</span> (2023). DOI: 10.1016/J.JHAZMAT.2023.132480
-        
-         span class="pub-if">IF: 11.3 (Q1)</span>
-                    </li>
-                    <li>
-                        <span class="pub-title">The brassinosteroid-signaling gene BnaC04.BIL1 contributes to plant architecture in Brassica napus.</span><br>
-                        Yonghai Fan<sup>#</sup>, Yuling Chen<sup>#</sup>, <strong>Xiaodong Li<sup>#</sup></strong>, Hongqiao Chen, Mengna Yu, Likai Miao, Siyu Wei, Shengting Li, Mingchao Qian, Wei Chang, Umer Mahmood, Shahid Ullah Khan, Lijuan Wei, Cunmin Qu, Jiana Li, Kun Lu. (<sup>#</sup>Co-first author)<br>
-                        <span class="pub-journal">Industrial Crops and Products</span> (2024). DOI: 10.1016/J.INDCROP.2024.118066
-        
-         span class="pub-if">IF: 6.2 (Q1)</span>
-                    </li>
-                </ul>
-            </section>
-        </div>
+    <div class="container" id="cv-container" style="display: none;">
+        <div class="sidebar" id="sidebar-container"></div>
+        <div class="main-content" id="main-container"></div>
     </div>
 
     <script>
+        // ----------------------------------------------------
+        // 语言切换与持久化逻辑
+        // ----------------------------------------------------
         function toggleLanguage() {
             const body = document.body;
             body.classList.toggle('zh-mode');
-            
-            if(body.classList.contains('zh-mode')) {
-                localStorage.setItem('cv-lang', 'zh');
-            } else {
-                localStorage.setItem('cv-lang', 'en');
-            }
+            localStorage.setItem('cv-lang', body.classList.contains('zh-mode') ? 'zh' : 'en');
         }
 
-        window.onload = function() {
+        function initLanguage() {
             const savedLang = localStorage.getItem('cv-lang');
             if (savedLang === 'zh' || (!savedLang && navigator.language.startsWith('zh'))) {
                 document.body.classList.add('zh-mode');
             }
-        };
+        }
+
+        // ----------------------------------------------------
+        // 数据加载与动态渲染引擎
+        // ----------------------------------------------------
+        async function loadCVData() {
+            try {
+                // 核心：读取同目录下的 data.json
+                const response = await fetch('data.json');
+                if (!response.ok) throw new Error('Failed to load JSON');
+                const data = await response.json();
+                
+                renderSidebar(data);
+                renderMainContent(data);
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('cv-container').style.display = 'flex';
+                initLanguage();
+
+            } catch (error) {
+                document.getElementById('loading').innerHTML = `
+                    <div style="color: #e74c3c;">
+                        <i class="fas fa-exclamation-triangle"></i> Data loading failed.<br>
+                        <small style="font-size:14px; color:#666;">
+                            If you are viewing this locally (file://), browsers block JSON fetching for security.<br>
+                            Please use a Local Server (e.g. VS Code Live Server) or deploy to GitHub Pages.
+                        </small>
+                    </div>`;
+                console.error("JSON fetch error:", error);
+            }
+        }
+
+        // --- 渲染侧边栏 ---
+        function renderSidebar(data) {
+            const sidebar = document.getElementById('sidebar-container');
+            const p = data.personal_info;
+            
+            let html = `
+                <img src="${p.avatar}" alt="Avatar" class="profile-img">
+                <div class="name-title">
+                    <h1><span lang="en">${p.name_en}</span><span lang="zh">${p.name_zh}</span></h1>
+                    <h2><span lang="en">${p.title_en}</span><span lang="zh">${p.title_zh}</span></h2>
+                </div>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i><span lang="en">${p.location_en}</span><span lang="zh">${p.location_zh}</span></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:${p.email}">${p.email}</a></li>
+                    <li><i class="fab fa-github"></i> <a href="${p.github_url}" target="_blank">${p.github}</a></li>
+                    <li><i class="fab fa-orcid"></i> <a href="${p.orcid_url}" target="_blank">${p.orcid}</a></li>
+                    <li><i class="fas fa-id-card"></i> Web of Science: ${p.wos}</li>
+                </ul>
+            `;
+
+            if (data.metrics && data.metrics.show) {
+                html += `
+                <div class="metrics">
+                    <h3><span lang="en">Academic Metrics</span><span lang="zh">学术指标</span></h3>
+                    <div class="metric-item"><span lang="en">Total Publications</span><span lang="zh">总发文量</span><span>${data.metrics.total_publications}</span></div>
+                    <div class="metric-item"><span lang="en">H-index</span><span lang="zh">H指数</span><span>${data.metrics.h_index}</span></div>
+                    <div class="metric-item"><span lang="en">Sum of Times Cited</span><span lang="zh">总被引频次</span><span>${data.metrics.times_cited}</span></div>
+                </div>`;
+            }
+
+            if (data.expertise && data.expertise.show) {
+                html += `
+                <section>
+                    <h3 class="section-title"><span lang="en">Core Expertise</span><span lang="zh">核心专长</span></h3>
+                    <div class="skills-container" lang="en">${data.expertise.tags_en.map(t => `<span class="skill-tag">${t}</span>`).join('')}</div>
+                    <div class="skills-container" lang="zh">${data.expertise.tags_zh.map(t => `<span class="skill-tag">${t}</span>`).join('')}</div>
+                </section>`;
+            }
+            sidebar.innerHTML = html;
+        }
+
+        // --- 渲染主体内容 ---
+        function renderMainContent(data) {
+            const main = document.getElementById('main-container');
+            let html = '';
+
+            // 1. 教育经历 (Education)
+            if (data.education && data.education.show) {
+                let eduHtml = '';
+                data.education.items.forEach(item => {
+                    eduHtml += `
+                    <div class="item">
+                        <div class="item-header">
+                            <span class="item-title"><span lang="en">${item.school_en}</span><span lang="zh">${item.school_zh}</span></span>
+                            <span class="item-date"><span lang="en">${item.date_en}</span><span lang="zh">${item.date_zh}</span></span>
+                        </div>
+                        <div class="item-subtitle"><span lang="en">${item.degree_en}</span><span lang="zh">${item.degree_zh}</span></div>
+                    </div>`;
+                });
+                // 插入荣誉区块
+                eduHtml += `
+                    <div class="honors-box">
+                        <i class="fas fa-award"></i> 
+                        <span lang="en">${data.education.honors_en}</span>
+                        <span lang="zh">${data.education.honors_zh}</span>
+                    </div>`;
+                html += renderSection(data.education, eduHtml);
+            }
+
+            // 2. 代表性成果 (Representative Achievements)
+            if (data.achievements && data.achievements.show) {
+                let achHtml = `
+                    <div class="summary-box">
+                        <i class="fas fa-chart-line"></i> 
+                        <span lang="en">${data.achievements.summary_en}</span>
+                        <span lang="zh">${data.achievements.summary_zh}</span>
+                    </div>
+                    <ul class="pub-list">`;
+                data.achievements.items.forEach(pub => {
+                    achHtml += `
+                    <li>
+                        <span class="pub-title">${pub.title}</span><br>
+                        ${pub.authors}<br>
+                        <span class="pub-journal">${pub.journal}</span> (${pub.year}). DOI: ${pub.doi} 
+                        <span class="pub-if">${pub.if_info}</span>
+                    </li>`;
+                });
+                achHtml += `</ul>`;
+                html += renderSection(data.achievements, achHtml);
+            }
+
+            // 3. 科研项目 (Research Projects)
+            if (data.projects && data.projects.show && data.projects.items.length > 0) {
+                let projHtml = `<ul class="pub-list">`;
+                data.projects.items.forEach(p => {
+                    projHtml += `<li>${p.content}</li>`;
+                });
+                projHtml += `</ul>`;
+                html += renderSection(data.projects, projHtml);
+            }
+
+            // 4. 同行评审 (Peer Review)
+            if (data.peer_review && data.peer_review.show) {
+                let prHtml = `<ul class="pub-list">`;
+                data.peer_review.items.forEach(pr => {
+                    prHtml += `
+                    <li>
+                        <strong lang="en">Journal:</strong><strong lang="zh">期刊：</strong> <em>${pr.journal}</em> 
+                        | ISSN: ${pr.issn} | 
+                        <span lang="en">Review date:</span><span lang="zh">审稿时间：</span> ${pr.date} | 
+                        Type: ${pr.type} | Role: ${pr.role}
+                    </li>`;
+                });
+                prHtml += `</ul>`;
+                html += renderSection(data.peer_review, prHtml);
+            }
+
+            // 5. 个人技能/生信工具 (Personal Skills)
+            if (data.skills && data.skills.show) {
+                let skillsHtml = '';
+                data.skills.items.forEach(tool => {
+                    let linksHtml = '';
+                    if (tool.links) {
+                        tool.links.forEach(link => {
+                            linksHtml += `<a href="${link.url}" class="tool-link" target="_blank"><i class="${link.icon}"></i> ${link.text}</a>`;
+                        });
+                    }
+                    skillsHtml += `
+                    <div class="item">
+                        <div class="item-subtitle">${tool.name}</div>
+                        <p class="item-desc" lang="en">${tool.desc_en}</p>
+                        <p class="item-desc" lang="zh">${tool.desc_zh}</p>
+                        <div>${linksHtml}</div>
+                    </div>`;
+                });
+                html += renderSection(data.skills, skillsHtml);
+            }
+
+            main.innerHTML = html;
+        }
+
+        // 辅助函数：生成通用 Section 骨架
+        function renderSection(sectionData, contentHtml) {
+            return `
+            <section>
+                <h3 class="section-title">
+                    <span lang="en">${sectionData.title_en}</span>
+                    <span lang="zh">${sectionData.title_zh}</span>
+                </h3>
+                ${contentHtml}
+            </section>`;
+        }
+
+        // 页面加载完成后执行
+        window.addEventListener('DOMContentLoaded', loadCVData);
+
     </script>
 </body>
 </html>

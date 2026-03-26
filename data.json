@@ -1,0 +1,192 @@
+{
+  "personal_info": {
+    "name_en": "Xiaodong Li",
+    "name_zh": "黎小东",
+    "title_en": "Ph.D. Candidate in Crop Genetics & Breeding",
+    "title_zh": "作物遗传育种专业博士生",
+    "location_en": "College of Agronomy and Biotechnology, Southwest University, Chongqing, China",
+    "location_zh": "西南大学 农学与生物科技学院, 中国重庆",
+    "email": "lxd1997xy@email.swu.edu.cn",
+    "github": "swu1019lab",
+    "github_url": "https://github.com/swu1019lab",
+    "orcid": "0009-0007-9666-7967",
+    "orcid_url": "https://orcid.org/0009-0007-9666-7967",
+    "wos": "PKR-5239-2026",
+    "avatar": "profile.jpg"
+  },
+  "metrics": {
+    "show": true,
+    "total_publications": 22,
+    "h_index": 10,
+    "times_cited": 287
+  },
+  "expertise": {
+    "show": true,
+    "tags_en": ["Bioinformatics", "Population Genetics", "Genome Assembly", "Multi-Omics Analysis", "Database Construction", "Python Development"],
+    "tags_zh": ["生物信息学", "群体遗传学", "基因组组装", "多组学分析", "数据库构建", "Python工具开发"]
+  },
+  "education": {
+    "show": true,
+    "title_en": "Education",
+    "title_zh": "教育经历",
+    "honors_en": "Awarded National Scholarship for Graduate Students (1), Second-class Outstanding Graduate Scholarship (2), and First-class Academic Scholarship for Graduate Students (4).",
+    "honors_zh": "主要荣誉：曾获研究生国家奖学金 1 次，优秀研究生奖学金二等奖 2 次，研究生学业奖学金一等奖 4 次等多项荣誉。",
+    "items": [
+      {
+        "school_en": "Southwest University",
+        "school_zh": "西南大学",
+        "date_en": "2022.09 – 2026.06 (Expected)",
+        "date_zh": "2022.09 – 2026.06 (预计毕业)",
+        "degree_en": "Ph.D. in Crop Genetics and Breeding",
+        "degree_zh": "农学博士 - 作物遗传育种专业"
+      },
+      {
+        "school_en": "Southwest University",
+        "school_zh": "西南大学",
+        "date_en": "2020.09 – 2022.10",
+        "date_zh": "2020.09 – 2022.10",
+        "degree_en": "M.S. in Genetics",
+        "degree_zh": "理学硕士 - 遗传学专业"
+      },
+      {
+        "school_en": "Southwest University",
+        "school_zh": "西南大学",
+        "date_en": "2016.09 – 2020.06",
+        "date_zh": "2016.09 – 2020.06",
+        "degree_en": "B.S. in Plant Science and Technology",
+        "degree_zh": "农学学士 - 植物科学与技术专业"
+      }
+    ]
+  },
+  "achievements": {
+    "show": true,
+    "title_en": "Representative Achievements",
+    "title_zh": "代表性成果",
+    "summary_en": "Over the past five years, published 2 SCI papers as the first author and 4 SCI papers as a co-first author.",
+    "summary_zh": "近五年内以第一作者身份已发表 SCI 论文 2 篇，以共同第一作者身份发表 SCI 论文 4 篇。",
+    "items": [
+      {
+        "title": "Hastat: Mining Favorable Haplotypes of Trait-Associated Genes for Breeding Improvement in Natural Populations.",
+        "authors": "<strong>Xiaodong Li</strong>, Yuhong Wang, Boyu Meng, Zhixuan Qin, Minghao Zhang, Jiaming Song, Kun Lu.",
+        "journal": "Horticulture Research",
+        "year": "2026",
+        "doi": "10.1093/HR/UHAG018",
+        "if_info": "IF: 8.5 (JCR Q1, 中科院1区)"
+      },
+      {
+        "title": "qPrimerDB 2.0: an updated comprehensive gene-specific qPCR primer database for 1172 organisms.",
+        "authors": "<strong>Xiaodong Li</strong>, Boyu Meng, Zhi Zhang, Lijuan Wei, Wei Chang, Yuhong Wang, Kai Zhang, Tian Li, Kun Lu.",
+        "journal": "Nucleic Acids Research",
+        "year": "2025",
+        "doi": "10.1093/NAR/GKAE684",
+        "if_info": "IF: 13.1 (JCR Q1, 中科院1区)"
+      },
+      {
+        "title": "Development of a target capture sequencing SNP genotyping platform for genetic analysis and genomic breeding in rapeseed.",
+        "authors": "<strong>Xiaodong Li<sup>#</sup></strong>, Xumei Liu<sup>#</sup>, Yonghai Fan<sup>#</sup>, Shengting Li, Mengna Yu, Mingchao Qian, Yuling Chen, Hongqiao Chen, Xinchun Li, Bei Liu, Xinfu Xu, Cunmin Qu, Jiana Li, Kun Lu. (<sup>#</sup>Co-first author)",
+        "journal": "The Crop Journal",
+        "year": "2023",
+        "doi": "10.1016/J.CJ.2022.08.008",
+        "if_info": "IF: 5.6 (JCR Q1, 中科院1区)"
+      },
+      {
+        "title": "Exploring silique number in Brassica napus L.: Genetic and molecular advances for improving yield.",
+        "authors": "Hui Wang<sup>#</sup>, <strong>Xiaodong Li<sup>#</sup></strong>, Boyu Meng, Yonghai Fan, Shahid Ullah Khan, Mingchao Qian, Minghao Zhang, Haikun Yang, Kun Lu. (<sup>#</sup>Co-first author)",
+        "journal": "Plant Biotechnology Journal",
+        "year": "2024",
+        "doi": "10.1111/PBI.14309",
+        "if_info": "IF: 10.5 (JCR Q1, 中科院1区)"
+      },
+      {
+        "title": "CaHMA1 promotes Cd accumulation in pepper fruit.",
+        "authors": "Weihong Xu<sup>#</sup>, He Huang<sup>#</sup>, <strong>Xiaodong Li<sup>#</sup></strong>, Mei Yang, Sunlin Chi, Yu Pan, Nannan Li, Andrew H. Paterson, Yourong Chai, Kun Lu. (<sup>#</sup>Co-first author)",
+        "journal": "Journal of Hazardous Materials",
+        "year": "2023",
+        "doi": "10.1016/J.JHAZMAT.2023.132480",
+        "if_info": "IF: 11.3 (JCR Q1, 中科院1区)"
+      },
+      {
+        "title": "The brassinosteroid-signaling gene BnaC04.BIL1 contributes to plant architecture in Brassica napus.",
+        "authors": "Yonghai Fan<sup>#</sup>, Yuling Chen<sup>#</sup>, <strong>Xiaodong Li<sup>#</sup></strong>, Hongqiao Chen, Mengna Yu, Likai Miao, Siyu Wei, Shengting Li, Mingchao Qian, Wei Chang, Umer Mahmood, Shahid Ullah Khan, Lijuan Wei, Cunmin Qu, Jiana Li, Kun Lu. (<sup>#</sup>Co-first author)",
+        "journal": "Industrial Crops and Products",
+        "year": "2024",
+        "doi": "10.1016/J.INDCROP.2024.118066",
+        "if_info": "IF: 6.2 (JCR Q1, 中科院1区)"
+      }
+    ]
+  },
+  "projects": {
+    "show": false,
+    "title_en": "Research Projects",
+    "title_zh": "科研项目",
+    "items": []
+  },
+  "peer_review": {
+    "show": true,
+    "title_en": "Peer Review",
+    "title_zh": "同行评审",
+    "items": [
+      {
+        "journal": "Horticulture Research",
+        "issn": "2052-7276",
+        "date": "2026",
+        "type": "review",
+        "role": "reviewer"
+      }
+    ]
+  },
+  "skills": {
+    "show": true,
+    "title_en": "Personal Skills (Developed Tools & Platforms)",
+    "title_zh": "个人技能 (生信工具与平台开发)",
+    "items": [
+      {
+        "name": "Hastat (Gene Haplotype Analysis Tool)",
+        "desc_en": "An independently developed modular toolkit for comprehensive gene haplotype analysis and visualization in natural populations. It comprises four core modules: View, Stat, Network, and Plot.",
+        "desc_zh": "基于 Python 自主开发的模块化基因单倍型分析与可视化工具。包含四大核心模块：数据视图、统计分析、网络构建以及可视化。",
+        "links": [
+          {"icon": "fas fa-link", "url": "https://github.com/swu1019lab/hastat", "text": "https://github.com/swu1019lab/hastat"}
+        ]
+      },
+      {
+        "name": "GWASNexus (Post-GWAS Analysis Platform)",
+        "desc_en": "A comprehensive analysis platform designed to facilitate system-wide genetic analysis in crops, integrating GWAS scanning, dynamic LD-based clustering, epistasis detection, and genetic network construction.",
+        "desc_zh": "一款专为作物系统级遗传分析设计的全面 Post-GWAS 分析平台。集成了 GWAS 扫描、基于动态 LD 的聚类算法、上位性效应检测以及揭示多效性的遗传网络构建功能。",
+        "links": [
+          {"icon": "fas fa-link", "url": "https://github.com/swu1019lab/GWASNexus", "text": "https://github.com/swu1019lab/GWASNexus"}
+        ]
+      },
+      {
+        "name": "BnaPan50T (Target Capture Sequencing Platform)",
+        "desc_en": "A 50K liquid chip SNP genotyping platform developed for rapeseed. Validated in a DH population, achieving 93% genotyping accuracy.",
+        "desc_zh": "为油菜开发的一款 50K SNP 靶向捕获测序液相芯片平台。在 DH 群体测试中，该芯片展现出 93% 的基因分型准确性，成功应用于 QTL 定位与 DNA 指纹图谱构建。",
+        "links": []
+      },
+      {
+        "name": "qPrimerDB 2.0",
+        "desc_en": "A comprehensive gene-specific qPCR primer database for 1172 organisms, expanded to contain 430 million primer pairs.",
+        "desc_zh": "涵盖 1172 种生物的基因特异性 qPCR 引物综合数据库。收录了 4.3 亿个引物对，平台提供完整的在线引物搜索、设计、检测和标注系统。",
+        "links": [
+          {"icon": "fas fa-link", "url": "https://qprimerdb.biodb.org/", "text": "https://qprimerdb.biodb.org/"},
+          {"icon": "fab fa-github", "url": "https://github.com/swu1019lab/qPrimer", "text": "qPrimer Tool"}
+        ]
+      },
+      {
+        "name": "PGFAT (Pan-Gene Family Analysis Toolkit)",
+        "desc_en": "A Python-based command-line pipeline automating workflows from HMM-based member identification to pan-genomic classification.",
+        "desc_zh": "基于 Python 开发的高通量命令行分析流程。自动化了从基于 HMM 的成员鉴定、系统发育分析到泛基因组分类的全流程。",
+        "links": [
+          {"icon": "fas fa-link", "url": "https://github.com/swu1019lab/PGFAT", "text": "https://github.com/swu1019lab/PGFAT"}
+        ]
+      },
+      {
+        "name": "BrassicaIBD (Intelligent Breeding Platform)",
+        "desc_en": "An intelligent breeding platform for rapeseed based on B/S architecture, achieving one-stop core gene mining and targeted breeding design.",
+        "desc_zh": "基于 B/S 架构开发的油菜智慧育种平台。集成了种质查询、基因挖掘和育种设计三个核心模块，实现了核心基因一站式挖掘及靶向育种设计。",
+        "links": [
+          {"icon": "fas fa-link", "url": "https://brassicaibd.cn/", "text": "https://brassicaibd.cn/"}
+        ]
+      }
+    ]
+  }
+}
