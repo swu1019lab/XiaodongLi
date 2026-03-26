@@ -62,8 +62,8 @@
     "show": true,
     "title_en": "Representative Achievements",
     "title_zh": "代表性成果",
-    "summary_en": "Over the past five years, published 2 SCI papers as the first author and 4 SCI papers as a co-first author.",
-    "summary_zh": "近五年内以第一作者身份已发表 SCI 论文 2 篇，以共同第一作者身份发表 SCI 论文 4 篇。",
+    "summary_en": "Over the past five years, published 3 SCI papers as the first author and 4 SCI papers as a co-first author.",
+    "summary_zh": "近五年内以第一作者身份发表 SCI 论文 3 篇，以共同第一作者身份发表 SCI 论文 4 篇。",
     "items": [
       {
         "title": "Hastat: Mining Favorable Haplotypes of Trait-Associated Genes for Breeding Improvement in Natural Populations.",
@@ -71,7 +71,7 @@
         "journal": "Horticulture Research",
         "year": "2026",
         "doi": "10.1093/HR/UHAG018",
-        "if_info": "IF: 8.5 (JCR Q1, 中科院1区)"
+        "if_info": "IF: 8.5 (JCR Q1, 中科院1区, 新锐学术)"
       },
       {
         "title": "qPrimerDB 2.0: an updated comprehensive gene-specific qPCR primer database for 1172 organisms.",
@@ -79,7 +79,7 @@
         "journal": "Nucleic Acids Research",
         "year": "2025",
         "doi": "10.1093/NAR/GKAE684",
-        "if_info": "IF: 13.1 (JCR Q1, 中科院1区)"
+        "if_info": "IF: 13.1 (JCR Q1, 中科院1区, 新锐学术)"
       },
       {
         "title": "Development of a target capture sequencing SNP genotyping platform for genetic analysis and genomic breeding in rapeseed.",
@@ -87,7 +87,15 @@
         "journal": "The Crop Journal",
         "year": "2023",
         "doi": "10.1016/J.CJ.2022.08.008",
-        "if_info": "IF: 5.6 (JCR Q1, 中科院1区)"
+        "if_info": "IF: 5.6 (JCR Q1, 中科院1区, 新锐学术)"
+      },
+      {
+        "title": "Pan-genome-wide identification and co-expression analysis of rapeseed SBT genes reveals that BnaSBT1.4 negatively regulates the salt-stress response.",
+        "authors": "Shengting Li<sup>#</sup>; <strong>Xiaodong Li<sup>#</sup></strong>; Boyu Meng<sup>#</sup>; Daifei Song; Yuanyi Mao; Lin Liu; Wei Chang; Yonghai Fan; Mingchao Qian; Shahid Ullah Khan, Kun Lu. (<sup>#</sup>Co-first author)",
+        "journal": "Horticultural Plant Journal",
+        "year": "2026",
+        "doi": "10.1016/j.hpj.2026.01.003",
+        "if_info": "IF: 6.2 (JCR Q1, 中科院1区, 新锐学术)"
       },
       {
         "title": "Exploring silique number in Brassica napus L.: Genetic and molecular advances for improving yield.",
@@ -95,7 +103,7 @@
         "journal": "Plant Biotechnology Journal",
         "year": "2024",
         "doi": "10.1111/PBI.14309",
-        "if_info": "IF: 10.5 (JCR Q1, 中科院1区)"
+        "if_info": "IF: 10.5 (JCR Q1, 中科院1区, 新锐学术)"
       },
       {
         "title": "CaHMA1 promotes Cd accumulation in pepper fruit.",
@@ -103,7 +111,7 @@
         "journal": "Journal of Hazardous Materials",
         "year": "2023",
         "doi": "10.1016/J.JHAZMAT.2023.132480",
-        "if_info": "IF: 11.3 (JCR Q1, 中科院1区)"
+        "if_info": "IF: 11.3 (JCR Q1, 中科院1区, 新锐学术)"
       },
       {
         "title": "The brassinosteroid-signaling gene BnaC04.BIL1 contributes to plant architecture in Brassica napus.",
@@ -111,7 +119,7 @@
         "journal": "Industrial Crops and Products",
         "year": "2024",
         "doi": "10.1016/J.INDCROP.2024.118066",
-        "if_info": "IF: 6.2 (JCR Q1, 中科院1区)"
+        "if_info": "IF: 6.2 (JCR Q1, 中科院1区, 新锐学术)"
       }
     ]
   },
@@ -141,7 +149,15 @@
     "title_zh": "个人技能 (生信工具与平台开发)",
     "items": [
       {
-        "name": "Hastat (Gene Haplotype Analysis Tool)",
+        "name": "BrassicaIBD (Intelligent Breeding Platform)",
+        "desc_en": "An intelligent breeding platform for rapeseed based on browser/server architecture, achieving one-stop core gene mining and targeted breeding design.",
+        "desc_zh": "基于 B/S 架构开发的油菜智慧育种平台。集成了种质查询、基因挖掘和育种设计三个核心模块，实现了核心基因一站式挖掘及靶向育种设计。",
+        "links": [
+          {"icon": "fas fa-link", "url": "https://brassicaibd.cn/", "text": "https://brassicaibd.cn/"}
+        ]
+      },
+      {
+        "name": "Hastat (Gene Haplotype Analysis ToolKit)",
         "desc_en": "An independently developed modular toolkit for comprehensive gene haplotype analysis and visualization in natural populations. It comprises four core modules: View, Stat, Network, and Plot.",
         "desc_zh": "基于 Python 自主开发的模块化基因单倍型分析与可视化工具。包含四大核心模块：数据视图、统计分析、网络构建以及可视化。",
         "links": [
@@ -149,9 +165,9 @@
         ]
       },
       {
-        "name": "GWASNexus (Post-GWAS Analysis Platform)",
-        "desc_en": "A comprehensive analysis platform designed to facilitate system-wide genetic analysis in crops, integrating GWAS scanning, dynamic LD-based clustering, epistasis detection, and genetic network construction.",
-        "desc_zh": "一款专为作物系统级遗传分析设计的全面 Post-GWAS 分析平台。集成了 GWAS 扫描、基于动态 LD 的聚类算法、上位性效应检测以及揭示多效性的遗传网络构建功能。",
+        "name": "GWASNexus (Post-GWAS Analysis ToolKit)",
+        "desc_en": "A comprehensive analysis platform designed to facilitate genetic dissection in crops, integrating LD-based dynamic QTL scanning, epistasis detection, genetic network construction and interactive HTML report generation.",
+        "desc_zh": "一款专为作物遗传基础解析设计的全面 Post-GWAS 分析工具。集成了基于LD动态聚类算法的QTL扫描、上位性效应检测、基因多效性遗传网络构建以及交互式报告生成功能。",
         "links": [
           {"icon": "fas fa-link", "url": "https://github.com/swu1019lab/GWASNexus", "text": "https://github.com/swu1019lab/GWASNexus"}
         ]
@@ -177,14 +193,6 @@
         "desc_zh": "基于 Python 开发的高通量命令行分析流程。自动化了从基于 HMM 的成员鉴定、系统发育分析到泛基因组分类的全流程。",
         "links": [
           {"icon": "fas fa-link", "url": "https://github.com/swu1019lab/PGFAT", "text": "https://github.com/swu1019lab/PGFAT"}
-        ]
-      },
-      {
-        "name": "BrassicaIBD (Intelligent Breeding Platform)",
-        "desc_en": "An intelligent breeding platform for rapeseed based on B/S architecture, achieving one-stop core gene mining and targeted breeding design.",
-        "desc_zh": "基于 B/S 架构开发的油菜智慧育种平台。集成了种质查询、基因挖掘和育种设计三个核心模块，实现了核心基因一站式挖掘及靶向育种设计。",
-        "links": [
-          {"icon": "fas fa-link", "url": "https://brassicaibd.cn/", "text": "https://brassicaibd.cn/"}
         ]
       }
     ]
